@@ -5,5 +5,5 @@
 ?>
 
 <?php $view->component('start') ?>
-<h1>Home page</h1>
+<h1 class="home-page">Home page</h1>
 <?php $view->component('end') ?>
