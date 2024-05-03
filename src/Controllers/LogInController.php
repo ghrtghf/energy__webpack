@@ -10,4 +10,9 @@ class LogInController extends Controller
     {
         $this->view('LogIn');
     }
+
+    public function logIn()
+    {
+       dd($this->auth());
+    }
 }

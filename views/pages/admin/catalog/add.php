@@ -1,7 +1,7 @@
 <?php
 /** 
- * @var \App\Kernel\View\View $view
- * @var \App\Kernel\Session\Session $session
+ * @var \App\Kernel\View\ViewInterface $view
+ * @var \App\Kernel\Session\SessionInterface $session
 */
 ?>
 
@@ -13,9 +13,13 @@
     <div>
     <input type="text" name="name">
     </div>
+
+    <!-- создаем вывод ошибок -->
+    <!-- проверяем сессию на наличие ошибок  -->
     <?php if($session->has(key:'name')){ ?>
     <div>
         <ul>
+            <!-- перебираем ошибки и выводим -->
             <?php foreach($session->getFlash(key:'name') as $error){ ?>
                 <li><?= $error ?></li>
             <?php } ?>
@@ -23,6 +27,7 @@
     </div>
     <?php } ?>
     <div>
+
     <button>Add</button>
     </div>
 </form>
