@@ -2,9 +2,9 @@
 
 namespace App\Kernel\Http;
 
-use App\Kernel\Validator\Validator;
 use App\Kernel\Validator\ValidatorInterface;
 
+//
 class Request implements RequestInterface
 {
     private ValidatorInterface $validator;

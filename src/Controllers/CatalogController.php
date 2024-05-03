@@ -30,6 +30,13 @@ class CatalogController extends Controller
             $this->redirect('/admin/catalog/add');
         }
 
-        dd('validation passed');
+        //вызываем метод инпут из класса db
+        //вписываем в какую таблицу и какие данные
+        $id = $this->db()->insert('test',[
+            //в колонку name вытаскиваем данные из метода запроса под именем name
+            'name' => $this->request()->input('name'),
+        ]);
+
+        dd("succes $id");
     }
 }
