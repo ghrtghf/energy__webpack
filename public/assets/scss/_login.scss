@@ -73,8 +73,6 @@
 .in-form {
 	text-align: center;
 }
-.in-form-email label {
-}
 
 .in {
 	&-form-email label input {
@@ -135,7 +133,7 @@
 	}
 
 	&-submit {
-		background: linear-gradient(90deg, #d9fbfc 13%, #9373bd 100%);
+		background: linear-gradient(90deg, #a6f8fb 13%, #9373bd 100%);
 		border-radius: 50px;
 		width: 400px;
 		height: 64px;
@@ -146,7 +144,10 @@
 		font-weight: 500;
 		font-size: 24px;
 		cursor: pointer;
-		transition: all 0.2s;
+
+		transition: all 0.2s ease;
+		animation: animate 8s ease infinite;
+		background-size: 400% 400%;
 		&:hover {
 			// background-position: 50%;
 			filter: hue-rotate(50deg);
