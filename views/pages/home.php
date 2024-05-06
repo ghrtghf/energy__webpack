@@ -38,10 +38,10 @@
 
 					<div class="home__info swiper">
 						<div class="home__info-wrapper swiper-wrapper">
-							<div class="home__text swiper-slide">это гениальная электростанция
-								зарядит тебя до краёв </div>
-							<div class="home__text swiper-slide">это гениальная электростанция
-								зарядит тебя до краёв </div>
+							<div class="home__text swiper-slide">здесь может быть любой
+								ваш текст </div>
+							<div class="home__text swiper-slide">здесь может быть любой
+								ваш текст </div>
 						</div>
 						<div class="home__navigation">
 							<div class="home__arrow-prev"><img src="./assets/img/home/arrowLeft.svg" alt="arrowLeft"></div>
