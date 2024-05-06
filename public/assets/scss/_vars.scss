@@ -1,0 +1,28 @@
+// Fonts
+$font-main: 'Inter', sans-serif;
+
+// Colors
+$white: #fff;
+$black: #000;
+$purple: #E4C0FF;
+$blue: #A5EEFF;
+
+// Breakpoints
+
+$mobile-max: 'screen and (max-width: 26.5625rem)';
+$mobile-min: 'screen and (min-width: 20rem)';
+$mobile-interval: '(min-width: 20rem) and (max-width: 26.5625rem)';
+
+$tablet-max: 'screen and (max-width: 63.9625rem)';
+
+$mouse-device: '(hover: hover) and (pointer: fine)';
+$touch-device: '(hover: none) and (pointer: coarse)';
+
+// z-index
+
+$index-1: 1; // Для наползающих элементов в общем потоке
+$index-2: 2; // Для наползающих элементов в общем потоке
+$index-3: 3; // Для масок, фона
+$index-4: 4; // Для сайдбаров
+$index-5: 5; // Для модальных окон
+$index-6: 6; // Для элементов, покрывающих всё
