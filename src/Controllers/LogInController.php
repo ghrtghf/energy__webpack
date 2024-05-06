@@ -8,11 +8,23 @@ class LogInController extends Controller
 {
     public function index(): void
     {
-        $this->view('LogIn');
+        $this->view('login');
     }
 
     public function logIn()
     {
-       dd($this->auth());
+        $email = $this->request()->input('email');
+        $password = $this->request()->input('password');
+    
+        $this->auth()->attempt($email, $password);
+
+        $this->redirect('/home');
+    }
+
+    public function logOut(): void
+    {
+        $this->auth()->logout();
+
+        $this->redirect('/login');
     }
 }

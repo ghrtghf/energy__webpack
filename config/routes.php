@@ -6,6 +6,7 @@ use App\Controllers\ProfileController;
 use App\Controllers\LogInController;
 use App\Controllers\RegisterController;
 use App\Kernel\Router\Route;
+use App\Middleware\AuthMiddleware;
 
 return[
     Route::get('/home', [HomeController::class, 'index']),
@@ -15,6 +16,8 @@ return[
     Route::post('/admin/catalog/add', [CatalogController::class, 'store']),
     Route::get('/register', [RegisterController::class, 'index']),
     Route::post('/register', [RegisterController::class, 'register']),
-    Route::get('/logIn', [LogInController::class, 'index']),
-    Route::post('/logIn', [LogInController::class, 'login']),
+    Route::get('/login', [LogInController::class, 'index']),
+    Route::post('/login', [LogInController::class, 'login']),
+    Route::post('/logout', [LogInController::class, 'logout']),
+
 ];

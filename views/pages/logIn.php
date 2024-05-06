@@ -8,7 +8,7 @@
 <?php $view->component('start') ?>
 <h1>Login page</h1>
 
-<form action="/logIn" method="post">
+<form action="/login" method="post">
     <p>email</p>
     <input type="text" name="email">
     <p>password</p>
