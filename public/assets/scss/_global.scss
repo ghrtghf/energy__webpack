@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+body {
+  color: $black;
+  background-color: $white;
+  font-size: 1.125rem;
+  font-family: $font-main;
+  font-weight: 500;
+  margin: 0;
+  position: relative;
+  scroll-behavior: smooth;
+}
+a {
+  color: inherit;
+  transition: color 0.2s ease-in;
+}
+
+.wrapper {
+  max-width: 1430px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 15px;
+}
+
+
+body,
+html {
+  height: 100%;
+}
+.app {
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+main {
+  flex-grow: 1;
+}
+
+// reset
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a,
+a:visited,
+a:link,
+a:hover {
+  text-decoration: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+button {
+  border: none;
+}
+img {
+  max-width: 100%;
+}
+
+ul li {
+  list-style: none;
+}
+
+/* Скрывает крестик в IE */
+input::-ms-clear {
+  display: none;
+}
+
+input,
+button,
+optgroup,
+textarea,
+select {
+  color: inherit;
+  font-weight: inherit;
+}

@@ -9,7 +9,7 @@ use App\Kernel\Router\Route;
 use App\Middleware\AuthMiddleware;
 
 return[
-    Route::get('/home', [HomeController::class, 'index']),
+    Route::get('/', [HomeController::class, 'index']),
     Route::get('/catalog', [CatalogController::class, 'index']),
     Route::get('/profile', [ProfileController::class, 'index']),
     Route::get('/admin/catalog/add', [CatalogController::class, 'add']),
