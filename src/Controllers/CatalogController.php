@@ -18,6 +18,12 @@ class CatalogController extends Controller
 
     public function store()
     {
+        dd($this->storage()->url('test.png'));
+
+        $file = $this->request()->file('image');
+
+        $filePath = $file->move('catalog');
+
         $validation = $this->request()->validate([
             'name'=> ['required', 'min:3', 'max:50'],
         ]);

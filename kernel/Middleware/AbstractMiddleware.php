@@ -5,7 +5,7 @@ namespace app\Kernel\Middleware;
 use App\Kernel\Auth\Authinterface;
 use App\Kernel\Http\RedirectInterface;
 use App\Kernel\Http\RequestInterface;
-use LDAP\Result;
+
 
 abstract class AbstractMiddleware
 {

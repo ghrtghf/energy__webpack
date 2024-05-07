@@ -8,7 +8,7 @@
 <?php $view->component('start') ?>
 <h1>Add catalog page</h1>
 
-<form action="/admin/catalog/add" method="post">
+<form action="/admin/catalog/add" method="post" enctype="multipart/form-data">
     <p>Name</p>
     <div>
     <input type="text" name="name">
@@ -26,6 +26,9 @@
         </ul>
     </div>
     <?php } ?>
+    <div class="">
+        <input type="file" name="image">
+    </div>
     <div>
 
     <button>Add</button>
