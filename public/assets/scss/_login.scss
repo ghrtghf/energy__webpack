@@ -3,25 +3,31 @@
 	height: 100%;
 	display: flex;
 	&__main {
-		margin-top: 15%;
-
 		width: 50%;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__header {
+		text-align: center;
 	}
 	&__title {
 		font-weight: 400;
 	}
 	&__logo {
-		padding-bottom: 14px;
+		padding-bottom: 14px; 
 		svg {
 			animation: 1s zoom 1s infinite alternate;
 		}
 	}
 
 	&__title {
-		padding-bottom: 14px;
+		padding-bottom: 0.875rem;
 	}
 	&__subtitle {
-		padding-bottom: 90px;
+		padding-bottom: 5.625rem;
 	}
 
 	&__signUp {
@@ -42,14 +48,14 @@
 }
 
 .in-logo {
-	display: flex;
+	display: inline-flex;
 	gap: 0.5rem;
 	font-weight: 600;
 	font-size: 2rem;
 	color: $black;
-	display: flex;
 	align-items: center;
 	justify-content: center;
+	text-align: center;
 	p {
 		margin: 0;
 	}

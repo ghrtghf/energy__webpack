@@ -217,7 +217,8 @@ select {
   justify-content: right;
   gap: 1.25rem;
   max-height: 52.5rem;
-  height: 46.875rem;
+  height: 80vh;
+  width: 630px;
 }
 .home__main {
   display: flex;
@@ -256,7 +257,7 @@ select {
   margin: 0;
 }
 .home__swiper-wrapper {
-  width: 39.375rem;
+  max-width: 39.375rem;
 }
 .home__btn {
   background-color: #000;
@@ -333,8 +334,14 @@ select {
   display: flex;
 }
 .login__main {
-  margin-top: 15%;
   width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login__header {
+  text-align: center;
 }
 .login__title {
   font-weight: 400;
@@ -346,10 +353,10 @@ select {
   animation: 1s zoom 1s infinite alternate;
 }
 .login__title {
-  padding-bottom: 14px;
+  padding-bottom: 0.875rem;
 }
 .login__subtitle {
-  padding-bottom: 90px;
+  padding-bottom: 5.625rem;
 }
 .login__signUp {
   padding-bottom: 3.125rem;
@@ -366,14 +373,14 @@ select {
 }
 
 .in-logo {
-  display: flex;
+  display: inline-flex;
   gap: 0.5rem;
   font-weight: 600;
   font-size: 2rem;
   color: #000;
-  display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 .in-logo p {
   margin: 0;
@@ -530,6 +537,9 @@ select {
 }
 .signUp__logo {
   padding-bottom: 0.875rem;
+}
+.signUp__header {
+  text-align: center;
 }
 .signUp__title {
   padding-bottom: 2.5rem;

@@ -13,7 +13,12 @@
 		gap: 1.25rem;
 
 		max-height: 52.5rem;
-		height: 46.875rem;
+		height: 80vh;
+		width: 630px;
+
+		img {
+			// height: 100vh;
+		}
 	}
 
 	&__main {
@@ -55,7 +60,7 @@
 		margin: 0;
 	}
 	&__swiper-wrapper {
-		width: 39.375rem;
+		max-width: 39.375rem;
 	}
 
 	&__btn {
