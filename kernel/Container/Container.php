@@ -20,6 +20,9 @@ use App\Kernel\Config\ConfigInterface;
 use App\Kernel\Config\Config;
 use App\Kernel\Database\DatabaseInterface;
 use App\Kernel\Database\Database;
+use App\Kernel\Storage\StorageInterface;
+use App\Kernel\Storage\Storage;
+
 
 class Container
 {
@@ -32,6 +35,7 @@ class Container
     public readonly ConfigInterface $config;
     public readonly DatabaseInterface $database;
     public readonly Authinterface $auth;
+    public readonly StorageInterface $storage;
 
     public function __construct()
     {
@@ -48,6 +52,7 @@ class Container
         $this->config = new Config();
         $this->database = new Database($this->config);
         $this->auth = new Auth( $this->database, $this->session, $this->config);
+        $this->storage = new Storage($this->config);
         $this->view = new View($this->session, $this->auth);
         $this->router = new Router(
             $this->view, 
@@ -56,6 +61,7 @@ class Container
             $this->session, 
             $this->database,
             $this->auth,
+            $this->storage,
         );
     }
     

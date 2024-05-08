@@ -18,7 +18,7 @@ class LogInController extends Controller
     
         $this->auth()->attempt($email, $password);
 
-        $this->redirect('/home');
+        $this->redirect('/');
     }
 
     public function logOut(): void
