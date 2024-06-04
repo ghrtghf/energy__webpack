@@ -7,10 +7,10 @@
 
 <?php $view->component('start') ?>
 
-<section class="profile">
-	<div class="wrapper">
 
-		<div class="profile__main">
+<section class="history">
+	<div class="wrapper">
+		<div class="history__main">
 			<div class="sidebar">
 				<div class="sidebar__inner">
 					<a href="./profile" class="sidebar__link sidebar__active">
@@ -37,79 +37,31 @@
 							<path d="M28.7821 31.9805H31.9961V35.1786H28.7821V31.9805Z" fill="black" />
 						</svg>
 					</a>
+
+				</div>
+			</div>
+			<div class="history__panel">
+				<p>ID заказа</p>
+				<p>товар</p>
+				<p>дата заказа</p>
+				<p>цена</p>
+				<p>дата доставки</p>
+				<p>статус</p>
+			</div>
+
+			<div class="history__orders">
+				<div class="history__order">
+					<p>#000001</p>
+					<p><img src="./assets/img/catalog/1.png" alt=""></p>
+					<p>от 25.10.24</p>
+					<p>500000 Р.</p>
+					<p>27.10.24</p>
+					<p>доставляется</p>
 				</div>
 			</div>
 
-			<h2 class="profile__title person__title">персональные данные <span>изменить</span></h2>
-			<form action="" method="POST" class="profile__form">
-				<input type="submit" class="profile__submit-info" value="сохранить">
-
-				<div class="profile__row">
-					<div class="profile__name">
-						<label>
-							<p>имя</p>
-							<input class="profile__input-info" type="text" name="name" value="Филипп" disabled>
-						</label>
-					</div>
-					<div class="profile__phone">
-						<label>
-							<p>телефон</p>
-							<input class="profile__input-info" type="text" name="phone" value="" disabled>
-						</label>
-					</div>
-				</div>
-				<div class="profile__row">
-					<div class="profile__email">
-						<label>
-							<p>почта</p>
-							<input class="profile__input-info" type="text" name="email" value="" disabled>
-						</label>
-					</div>
-					<div class="profile__password">
-						<label>
-							<p>пароль</p>
-							<input class="profile__input-info" type="text" name="password" placeholder="Новый пароль" value="" disabled>
-						</label>
-					</div>
-				</div>
-			</form>
-
-			<h2 class="profile__title address__title ">адрес установки <span>изменить</span></h2>
-			<form action="" method="POST" class="profile__form">
-				<input type="submit" class="profile__submit-address" value="сохранить">
-				<div class="profile__row">
-					<div class="profile__index">
-						<label>
-							<p>почтовый индекс</p>
-							<input class="profile__input" type="text" name="index" value="" disabled>
-						</label>
-					</div>
-					<div class="profile__region">
-						<label>
-							<p>край/область/регион</p>
-							<input class="profile__input" type="text" name="region" value="" disabled>
-						</label>
-					</div>
-				</div>
-				<div class="profile__row">
-					<div class="profile__city">
-						<label>
-							<p>город</p>
-							<input class="profile__input" type="text" name="city" value="Уфа" disabled>
-						</label>
-					</div>
-					<div class="profile__street">
-						<label>
-							<p>улица, дом, квартира</p>
-							<input class="profile__input" type="text" name="street" value="" disabled>
-						</label>
-					</div>
-				</div>
-			</form>
 		</div>
 	</div>
 </section>
-
-
 
 <?php $view->component('end') ?>
