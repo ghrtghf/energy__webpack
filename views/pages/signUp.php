@@ -2,21 +2,10 @@
 
 /** 
  * @var \App\Kernel\View\View $view
+ * @var \App\Kernel\Session\SessionInterface $session
  */
 ?>
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Energy+</title>
-	<link type="image/x-icon" rel="shortcut icon" href="../assets/img/favicon.ico" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-	<link rel="stylesheet" href="./assets/css/style.css">
-</head>
-
-<body>
+<?php $view->component('easeStart') ?>
 	<div class="app">
 		<div class="signUp">
 			<div class="wrapper">
@@ -50,13 +39,16 @@
 					<h1 class="signUp__title in-title">
 						Регистрация
 					</h1>
-					<form action="" class="signUp__form in-form">
+					<form action="/signUp" method="POST" class="signUp__form in-form">
 						<div class="signUp__form-email in-form-email">
 							<label>
 								<div class="signUp__error error"></div>
 								<input type="text" placeholder="Почта" name="email">
 								<img class="signUp__email in-emailImg" src="./assets/img/signUp/mail.svg" alt="">
 							</label>
+								<?php if($session->has('email')){ ?>
+									<?php echo $session->getFlash('email')[0] ?>
+								<?php } ?>
 						</div>
 						<div class="signUp__row">
 							<div class="signUp__form-name">
@@ -65,28 +57,45 @@
 									<input type="text" placeholder="Имя" name="name">
 									<img class="signUp__name" src="./assets/img/signUp/profile.svg" alt="">
 								</label>
+								<?php if($session->has('name')){ ?>
+									<?php echo $session->getFlash('name')[0] ?>
+								<?php } ?>
 							</div>
 							<div class="signUp__form-telephone">
 								<label>
-									<div class="signUp__error error"></div>
+									<?php if($session->has('telephone')){ ?>
+										<div class="signUp__error error">
+											<?php echo $session->getFlash('telephone')[0] ?>
+										</div>
+									<?php } ?>
+
 									<input type="telephone" placeholder="Телефон" name="telephone">
 									<img class="signUp__telephone" src="./assets/img/signUp/telephone.svg" alt="">
 								</label>
+								
 							</div>
 						</div>
 						<div class="signUp__form-password in-form-password">
 							<label>
-								<div class="signUp__error error"></div>
+								<?php if($session->has('password')){ ?>
+									<div class="signUp__error error">
+										<?php echo $session->getFlash('password')[0] ?>
+									</div>
+								<?php } ?>
 								<input id="signUp__password" type="password" placeholder="Пароль" name="password">
 								<img class="singUp__password in-lock" src="./assets/img/signUp/lock.svg" alt="">
 							</label>
+							
 						</div>
 						<div class="signUp__form-passwordConfirm in-form-password">
 							<label>
 								<div class="signUp__error error"></div>
-								<input type="password" placeholder="Повторите пароль" name="password">
+								<input type="password" placeholder="Повторите пароль" name="password_confirm">
 								<img class="singUp__password in-lock" src="./assets/img/signUp/lock.svg" alt="">
 							</label>
+							<?php if($session->has('password_confirm')){ ?>
+									<?php echo $session->getFlash('password_confirm')[0] ?>
+								<?php } ?>
 						</div>
 						<p class="signUp__login in-signUp">Уже есть аккаунт? <a href="./login">Войти</a></p>
 						<input type="submit" value="Зарегистрироваться" class="singUp__submit in-submit">

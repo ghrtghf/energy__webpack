@@ -92,7 +92,15 @@ class Validator implements ValidatorInterface
                 return "Field $key must be a valid email address";
             }
             break;
+        //если валидация confirmed
+        case 'confirmed':
+            //сравниваем значение с подтверждающем полем
+            if($value != $this->data[$key."_confirm"]){
+                return "Field $key must be confirmed";
+            }
+            break;
        }
+        
        //если ни одно значение не прошло проверку возвращаем false
        return false;
     }

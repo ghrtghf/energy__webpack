@@ -2,22 +2,11 @@
 
 /** 
  * @var \App\Kernel\View\View $view
+ * @var \App\Kernel\Session\SessionInterface $session
  */
 ?>
 
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Energy+</title>
-	<link type="image/x-icon" rel="shortcut icon" href="../assets/img/favicon.ico" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-	<link rel="stylesheet" href="./assets/css/style.css">
-</head>
-
-<body>
+<?php $view->component('easeStart') ?>
 	<div class="app">
 		<div class="login">
 			<div class="wrapper">
@@ -55,7 +44,7 @@
 						Пожалуйста введите данные
 					</h2>
 
-					<form action="" method="POST" class="login__form in-form">
+					<form action="/login" method="POST" class="login__form in-form">
 						<div class="login__form-email in-form-email">
 							<label>
 								<div class="login__error error"></div>
@@ -70,6 +59,9 @@
 								<img class="login__eye in-eye" src="./assets/img/login/eye.svg" alt="">
 								<img class="login__closeEye in-closeEye hidden" src="./assets/img/login/eye-close.svg" alt="">
 							</label>
+							<?php if($session->has('error')){ ?>
+								<?php echo $session->getFlash('error') ?>
+							<?php } ?>
 						</div>
 						<p class="login__signUp in-signUp">Нет аккаунта? <a href="./signUp">Зарегистрироваться</a></p>
 						<input type="submit" value="Войти" class="login__submit in-submit">

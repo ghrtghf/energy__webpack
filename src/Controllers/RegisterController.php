@@ -17,8 +17,11 @@ class RegisterController extends Controller
         //валидируем данныые
         $validdation = $this->request()->validate([
             //прописыываем правила валидации
+            'name' => ['required', 'max:255'],
             'email' => ['required', 'email'],
-            'password' => ['required', 'min:3']
+            'telephone' => ['required', 'min:10', 'max:255'],
+            'password' => ['required', 'min:3','max:255', 'confirmed'],
+            'password_confirm' => ['required', 'min:3','max:255']
         ]);
 
         //если валидация выдает ошибку
@@ -29,14 +32,16 @@ class RegisterController extends Controller
             }
 
             //возвращаемся на страницу
-            $this->redirect('/register');
+            $this->redirect('/signUp');
         }
 
         $this->db()->insert('users', [
             'email' => $this->request()->input('email'),
+            'name' => $this->request()->input('name'),
+            'phone' => $this->request()->input('telephone'),
             'password' => password_hash($this->request()->input('password'), PASSWORD_DEFAULT),
         ]);
 
-        dd('user in');
+        $this->redirect('/');
     }
 }

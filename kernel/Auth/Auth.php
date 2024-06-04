@@ -7,8 +7,10 @@ use App\Kernel\Config\ConfigInterface;
 use App\Kernel\Database\DatabaseInterface;
 use App\Kernel\Session\SessionInterface;
 
+//
 class Auth implements Authinterface
 {
+    //подключаемся к классам баз данных, сессии и конфигов
     public function __construct(
         private DatabaseInterface $db,
         private SessionInterface $session,
@@ -18,41 +20,59 @@ class Auth implements Authinterface
         
     }
 
+    //функция для авторизации пользователя
+    //принимает значение логина и пароля
     public function attempt(string $username, string $password): bool
     {
+        //вызываем в переменную функцию first экземпляра бд
+        //передаем в нее результат функции table() и функции username()
         $user = $this->db->first($this->table(), [
             $this->username() => $username,
         ]);
 
+        //если пользователь не найден
         if (!$user) {
+            //возвращаем false
             return false;
         }
 
+        //если пароль не совпадает с вернувшимся паролем
         if(!password_verify($password, $user[$this->password()])) {
+            //возвращаем false
             return false;
         }
 
+        //записываем в сессию id пользователя под вернувшися из функции sessionField() названии
         $this->session->set($this->sessionField(), $user['id']);
 
+        //возвращаем true
         return true;
     }
 
+    //функция для выхода из профиля
     public function logout(): void
     {
+        //вызываем функцию для очистки сессии от id пользователя
         $this->session->remove($this->sessionField());
     }
 
+    //функция для проверки есть ли пользователь в сессии
     public function check(): bool
     {
+        //возвращаем результат проверки наличия эллемента сессии
         return $this->session->has($this->sessionField());
     }
 
+    //
     public function user(): ?User
     {
+        //если пользователя нет в сессии
         if (! $this->check()) {
+            //возвращаем null
             return null;
         }
 
+        //
         $user = $this->db->first($this->table(), [
             'id' => $this->session->get($this->sessionField()),
         ]);
@@ -60,6 +80,8 @@ class Auth implements Authinterface
         if ($user) {
             return new User(
                 $user['id'],
+                $user['phone'],
+                $user['name'],
                 $user[$this->username()],
                 $user[$this->password()],
             );
