@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  * @var \App\Kernel\View\ViewInterface $view
  */
@@ -14,6 +15,7 @@
 	<link type="image/x-icon" rel="shortcut icon" href="../assets/img/favicon.ico" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="./assets/css/style.css">
+
 </head>
 
 <body>

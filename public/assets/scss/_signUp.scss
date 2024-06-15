@@ -12,6 +12,12 @@
 	}
 	&__title {
 		padding-bottom: 2.5rem;
+		@media (max-height: 800px) {
+			padding-bottom: 1.125rem;
+		}
+		@media (max-height: 700px) {
+			padding-bottom: 0.5rem;
+		}
 	}
 
 	&__form-email {
@@ -22,12 +28,15 @@
 	}
 	&__form-passwordConfirm {
 		padding-bottom: 1.25rem;
-		@media (max-width: 550px) {
-			display: none;
+		@media (max-height: 700px) {
+			padding-bottom: 0.5rem;
 		}
 	}
 	&__login {
 		padding-bottom: 3.125rem;
+		@media (max-height: 800px) {
+			padding-bottom: 1.125rem;
+		}
 	}
 	&__main {
 		width: 50%;

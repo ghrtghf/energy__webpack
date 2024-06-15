@@ -1,29 +1,15 @@
 import animation from './animation.js';
-animation();
-const swiper = new Swiper('.home__swiper', {
-	// Optional parameters
-	direction: 'horizontal',
-	loop: true,
 
-	slidesPerGroup: 1,
-	simulateTouch: false,
-	spaceBetween: 20,
-	mousewheel: {
-		sensitivity: 1,
-		eventTarget: '.home__swiper-wrapper',
-	},
-});
-const swiperText = new Swiper('.home__info', {
-	// Optional parameters
-	direction: 'horizontal',
-	loop: true,
-	simulateTouch: false,
+const preloading = document.querySelector('.preloading');
+const body = document.querySelector('body');
+body.classList.add('hidden-scroll');
 
-	navigation: {
-		nextEl: '.home__arrow-next',
-		prevEl: '.home__arrow-prev',
-	},
+window.addEventListener('load', () => {
+	preloading.style.display = 'none';
+	animation();
+	body.classList.remove('hidden-scroll');
 });
+
 VANTA.HALO({
 	el: '.picture',
 	mouseControls: true,
