@@ -1,4 +1,8 @@
 .profile {
+	height: 80vh;
+	@media (max-height: 850px) {
+		overflow-y: scroll;
+	}
 	&__title {
 		margin: 0;
 
