@@ -85,7 +85,7 @@ export default function animation() {
 			.fromTo('.home__arrow', { scale: 0.6, opacity: 0, rotate: -50, autoAlpha: 0 }, { scale: 1, rotate: 0, opacity: 1, stagger: 0.2, duration: 1, autoAlpha: 1 }, '-=2.7')
 			.fromTo('.home__scroll', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1 }, '-=2.6');
 	}
-	// sessionStorage.setItem('first', 1);
+	sessionStorage.setItem('first', 1);
 
 	aboutTimeLine.fromTo('.about__title', { opacity: 0, autoAlpha: 0, y: 400 }, { opacity: 1, autoAlpha: 1, y: 300 });
 
