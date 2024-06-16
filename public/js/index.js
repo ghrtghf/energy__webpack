@@ -1,4 +1,5 @@
 import animation from './animation.js';
+import { initMap } from './map.js';
 
 const preloading = document.querySelector('.preloading');
 const body = document.querySelector('body');
@@ -7,6 +8,7 @@ body.classList.add('hidden-scroll');
 window.addEventListener('load', () => {
 	preloading.style.display = 'none';
 	animation();
+	initMap();
 	body.classList.remove('hidden-scroll');
 });
 
@@ -18,6 +20,45 @@ VANTA.HALO({
 	minHeight: 200.0,
 	minWidth: 200.0,
 	// backgroundColor: 0x0C2EB4,
+});
+
+const counters = document.querySelectorAll('[data-counter]');
+
+counters.forEach(counter => {
+	counter.addEventListener('click', ev => {
+		const target = ev.target;
+
+		if (target.closest('.cart__button')) {
+			let value = target.closest('.cart__counter').querySelector('input').value;
+
+			if (target.classList.contains('counter-plus') || target.classList.contains('svg-plus')) {
+				value++;
+			} else {
+				--value;
+			}
+			if (value <= 0) {
+				value = 0;
+			}
+			target.closest('.cart__counter').querySelector('input').value = value;
+		}
+	});
+});
+
+const select = document.querySelectorAll('.cart__item > svg');
+select.forEach(item => {
+	item.addEventListener('click', ev => {
+		const target = ev.target;
+		let rect = target.closest('.cart__item').querySelector('.cart__item > svg rect');
+		let path = target.closest('.cart__item').querySelector('.cart__item > svg path');
+
+		if (rect.style.fill == 'black') {
+			rect.style.fill = 'white';
+			path.style.fill = 'black';
+		} else {
+			rect.style.fill = 'black';
+			path.style.fill = 'white';
+		}
+	});
 });
 
 const buttonPerson = document.querySelector('.person__title span');

@@ -198,7 +198,6 @@ export default function animation() {
 					start: 'top center',
 					end: '+=200',
 					scrub: true,
-					markers: true,
 				},
 			},
 			1
@@ -220,7 +219,6 @@ export default function animation() {
 					start: 'top center',
 					end: '+=400',
 					scrub: true,
-					markers: true,
 				},
 			},
 			1
@@ -239,7 +237,6 @@ export default function animation() {
 					start: '10% center',
 					end: '+=200',
 					scrub: true,
-					markers: true,
 				},
 			},
 			3
@@ -260,7 +257,6 @@ export default function animation() {
 					start: '40% center',
 					end: '+=100',
 					scrub: 2,
-					markers: true,
 				},
 			}
 		);
@@ -273,7 +269,6 @@ export default function animation() {
 		scrub: true,
 		anticipatePin: 1,
 		pin: '.catalog-home__wrapper',
-		markers: true,
 	});
 	catalog
 		.to(
@@ -293,15 +288,7 @@ export default function animation() {
 			},
 			1
 		)
-		.to(
-			'.catalog-home__arrow',
-			{
-				y: 100,
-				opacity: 0,
-				autoAlpha: 0,
-			},
-			1
-		)
+
 		.to(
 			'.catalog-home__ticker',
 			{
@@ -311,7 +298,7 @@ export default function animation() {
 			1
 		)
 		.to(
-			'.catalog-home__more',
+			'.catalog-home__footer',
 			{
 				y: 100,
 				opacity: 0,
@@ -323,7 +310,7 @@ export default function animation() {
 			'.catalog-home__img',
 			{
 				y: -300,
-				x: 500,
+				x: 450,
 				// left: '50%',
 				// xPercent: -50,
 				width: '500px',
@@ -344,21 +331,6 @@ export default function animation() {
 			sensitivity: 1,
 			eventTarget: '.home__swiper-wrapper',
 		},
-		// breakpoints: {
-		// 	// настройки для разных разрешений
-		// 	768: {
-		// 		slidesPerView: 'auto',
-		// 		spaceBetween: 8,
-		// 	},
-		// 	991: {
-		// 		slidesPerView: 2,
-		// 		spaceBetween: 30,
-		// 	},
-		// 	1192: {
-		// 		slidesPerView: 3,
-		// 		spaceBetween: 20,
-		// 	},
-		// },
 	});
 	new Swiper('.home__info', {
 		// Optional parameters

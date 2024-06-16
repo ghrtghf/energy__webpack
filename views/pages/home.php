@@ -236,15 +236,17 @@
 			<div class="catalog-home__main">
 				<div class="catalog-home__container">
 					<img class="catalog-home__img" src="./assets/img/home/5.jpg" alt="">
-					<svg class="catalog-home__arrow" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<circle cx="35" cy="35" r="35" fill="#F3F2F3" />
-						<path d="M26.1734 37.8535L34.5745 44.8535C34.8089 45.0488 35.1887 45.0488 35.4231 44.8535L43.8242 37.8535C44.0586 37.6582 44.0586 37.3417 43.8242 37.1464C43.5898 36.9511 43.1921 36.9511 42.9576 37.1464L35.5626 43.293V25.5C35.5626 25.2238 35.3314 25 35.0001 25C34.6687 25 34.4375 25.2238 34.4375 25.5V43.293L27.0414 37.1464C26.9242 37.0487 26.7608 36.9999 26.6074 36.9999C26.454 36.9999 26.2955 37.0487 26.1783 37.1464C25.9438 37.3418 25.939 37.6582 26.1734 37.8535Z" fill="black" />
-					</svg>
-					<div class="catalog-home__more">
-						<p>узнать больше</p>
-						<svg width="160" height="130" viewBox="0 0 160 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd" d="M142.454 130C153.433 116.304 160 98.9189 160 80C160 35.8172 124.183 0 80 0C35.8172 0 0 35.8172 0 80C0 98.9189 6.56718 116.304 17.5463 130H142.454Z" fill="#F3F2F3" />
+					<div class="catalog-home__footer">
+						<svg class="catalog-home__arrow" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="35" cy="35" r="35" fill="#F3F2F3" />
+							<path d="M26.1734 37.8535L34.5745 44.8535C34.8089 45.0488 35.1887 45.0488 35.4231 44.8535L43.8242 37.8535C44.0586 37.6582 44.0586 37.3417 43.8242 37.1464C43.5898 36.9511 43.1921 36.9511 42.9576 37.1464L35.5626 43.293V25.5C35.5626 25.2238 35.3314 25 35.0001 25C34.6687 25 34.4375 25.2238 34.4375 25.5V43.293L27.0414 37.1464C26.9242 37.0487 26.7608 36.9999 26.6074 36.9999C26.454 36.9999 26.2955 37.0487 26.1783 37.1464C25.9438 37.3418 25.939 37.6582 26.1734 37.8535Z" fill="black" />
 						</svg>
+						<div class="catalog-home__more">
+							<p>узнать больше</p>
+							<svg width="160" height="130" viewBox="0 0 160 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M142.454 130C153.433 116.304 160 98.9189 160 80C160 35.8172 124.183 0 80 0C35.8172 0 0 35.8172 0 80C0 98.9189 6.56718 116.304 17.5463 130H142.454Z" fill="#F3F2F3" />
+							</svg>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -255,7 +257,6 @@
 
 <section class='map'>
 	<div class="map__inner" id="map">
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9215.564442404955!2d55.9700489807578!3d54.729130142615844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43d93b1cbbd6c60f%3A0x62b1dd12a3728852!2sUksivt!5e0!3m2!1sen!2sru!4v1718292886926!5m2!1sen!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</div>
 </section>
 

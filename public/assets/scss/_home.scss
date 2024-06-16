@@ -438,10 +438,7 @@
 .map {
 	&__inner {
 		margin-top: 50px;
-		iframe {
-			width: 100vw;
-			height: 100vh;
-			filter: grayscale(0.5);
-		}
+		width: 100vw;
+		height: 100vh;
 	}
 }

@@ -18,7 +18,6 @@
 			cursor: pointer;
 		}
 	}
-
 	&__form {
 		margin-top: 55px;
 		display: flex;
@@ -28,6 +27,11 @@
 		gap: 45px;
 
 		position: relative;
+
+		// @media (max-height: 850px) {
+		// 	overflow-y: scroll;
+		// 	overflow: scroll;
+		// }
 	}
 
 	&__row {
