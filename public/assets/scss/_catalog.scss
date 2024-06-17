@@ -16,7 +16,7 @@
 	}
 	&__inner {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
 		row-gap: 120px;
 		column-gap: 100px;
 	}
@@ -24,6 +24,20 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.875rem;
+
+		&:hover .catalog__hover::before {
+			opacity: 1;
+		}
+
+		&:hover .catalog__more {
+			opacity: 1;
+		}
+
+		&:hover .catalog__button::before {
+			opacity: 1;
+			animation: animate 8s ease infinite;
+			background-size: 400% 400%;
+		}
 	}
 	&__img {
 		border-radius: 30px;
@@ -38,7 +52,7 @@
 		}
 		position: relative;
 		&::before {
-			content: "";
+			content: '';
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -51,9 +65,11 @@
 			transition: all 0.2s ease;
 			box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
 			background: rgba(0, 0, 0, 0.5);
+			cursor: default;
 		}
 		&:hover .catalog__more {
 			opacity: 1;
+			cursor: pointer;
 		}
 	}
 
@@ -66,10 +82,12 @@
 		height: 46px;
 		color: $white;
 		font-weight: 600;
-		font-size: 20px;
+		font-size: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		background: $black;
 		padding: 11px 0px;
-		text-align: center;
 		z-index: 2;
 	}
 
@@ -98,8 +116,7 @@
 
 	&__button {
 		border-radius: 3.125rem;
-		height: 4.375rem;
-		box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+		height: 60px;
 		background: $black;
 		color: $white;
 
@@ -109,7 +126,6 @@
 
 		transition: all 0.2s ease;
 		font-weight: 400;
-		font-size: 1.25rem;
 		text-transform: lowercase;
 		position: relative;
 
@@ -119,11 +135,11 @@
 			background-size: 400% 400%;
 		}
 		&::before {
-			content: "";
+			content: '';
 			position: absolute;
 			top: 0;
 			left: 0;
-			height: 4.375rem;
+			height: 60px;
 			border-radius: 3.125rem;
 
 			width: 100%;
@@ -135,6 +151,7 @@
 		span {
 			z-index: 99;
 			position: relative;
+			font-size: 16px;
 		}
 	}
 }

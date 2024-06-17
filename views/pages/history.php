@@ -7,19 +7,19 @@
 
 <?php $view->component('start') ?>
 
-<section class="profile">
-	<div class="wrapper">
 
-		<div class="profile__main">
+<section class="history">
+	<div class="wrapper">
+		<div class="history__main">
 			<div class="sidebar">
 				<div class="sidebar__inner">
-					<a href="./profile" class="sidebar__link sidebar__active">
+					<a href="./profile" class="sidebar__link sidebar__circle">
 						<svg width="36" height="40" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M9 9.09091C9 4.07015 13.0294 0 18 0C22.9705 0 27 4.07015 27 9.09091C27 14.1117 22.9705 18.1818 18 18.1818C13.0294 18.1818 9 14.1117 9 9.09091ZM18 3.63636C15.0176 3.63636 12.6 6.07845 12.6 9.09091C12.6 12.1034 15.0176 14.5455 18 14.5455C20.9824 14.5455 23.4 12.1034 23.4 9.09091C23.4 6.07845 20.9824 3.63636 18 3.63636Z" fill="black" />
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M0 38.1818C0 28.1404 8.05887 20 18 20C27.941 20 36 28.1404 36 38.1818V40H0V38.1818ZM3.7114 36.3636H32.2886C31.4028 29.1885 25.3433 23.6364 18 23.6364C10.6567 23.6364 4.59718 29.1885 3.7114 36.3636Z" fill="black" />
 						</svg>
 					</a>
-					<a href="./history" class="sidebar__link sidebar__circle">
+					<a href="./history" class="sidebar__link sidebar__active">
 						<svg width="38" height="36" viewBox="0 0 38 36" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M19.95 0C13.3 0 7.41 3.6 4.37 9.09474L0 4.73684V17.0526H12.35L7.03 11.7474C9.5 7.01053 14.25 3.78947 19.95 3.78947C27.74 3.78947 34.2 10.2316 34.2 18C34.2 25.7684 27.74 32.2105 19.95 32.2105C13.68 32.2105 8.55 28.2316 6.46 22.7368H2.47C4.56 30.3158 11.59 36 19.95 36C30.02 36 38 27.8526 38 18C38 8.14737 29.83 0 19.95 0ZM17.1 9.47368V19.1368L26.03 24.4421L27.55 21.9789L19.95 17.4316V9.47368H17.1Z" fill="black" />
 						</svg>
@@ -37,79 +37,31 @@
 							<path d="M28.7821 31.9805H31.9961V35.1786H28.7821V31.9805Z" fill="black" />
 						</svg>
 					</a>
+
+				</div>
+			</div>
+			<div class="history__panel">
+				<p>ID заказа</p>
+				<p>товар</p>
+				<p>дата заказа</p>
+				<p>цена</p>
+				<p>дата доставки</p>
+				<p>статус</p>
+			</div>
+
+			<div class="history__orders">
+				<div class="history__order">
+					<p>#000001</p>
+					<p><img src="./assets/img/catalog/1.png" alt=""></p>
+					<p>от 25.10.24</p>
+					<p>500000 Р.</p>
+					<p>27.10.24</p>
+					<p>доставляется</p>
 				</div>
 			</div>
 
-			<h2 class="profile__title person__title">персональные данные <span>изменить</span></h2>
-			<form action="" method="POST" class="profile__form">
-				<input type="submit" class="profile__submit-info" value="сохранить">
-
-				<div class="profile__row">
-					<div class="profile__name">
-						<label>
-							<p>имя</p>
-							<input class="profile__input-info" type="text" name="name" value="Филипп" disabled>
-						</label>
-					</div>
-					<div class="profile__phone">
-						<label>
-							<p>телефон</p>
-							<input class="profile__input-info" type="text" name="phone" value="" disabled>
-						</label>
-					</div>
-				</div>
-				<div class="profile__row">
-					<div class="profile__email">
-						<label>
-							<p>почта</p>
-							<input class="profile__input-info" type="text" name="email" value="" disabled>
-						</label>
-					</div>
-					<div class="profile__password">
-						<label>
-							<p>пароль</p>
-							<input class="profile__input-info" type="text" name="password" placeholder="Новый пароль" value="" disabled>
-						</label>
-					</div>
-				</div>
-			</form>
-
-			<h2 class="profile__title address__title ">адрес установки <span>изменить</span></h2>
-			<form action="" method="POST" class="profile__form">
-				<input type="submit" class="profile__submit-address" value="сохранить">
-				<div class="profile__row">
-					<div class="profile__index">
-						<label>
-							<p>почтовый индекс</p>
-							<input class="profile__input" type="text" name="index" value="" disabled>
-						</label>
-					</div>
-					<div class="profile__region">
-						<label>
-							<p>край/область/регион</p>
-							<input class="profile__input" type="text" name="region" value="" disabled>
-						</label>
-					</div>
-				</div>
-				<div class="profile__row">
-					<div class="profile__city">
-						<label>
-							<p>город</p>
-							<input class="profile__input" type="text" name="city" value="Уфа" disabled>
-						</label>
-					</div>
-					<div class="profile__street">
-						<label>
-							<p>улица, дом, квартира</p>
-							<input class="profile__input" type="text" name="street" value="" disabled>
-						</label>
-					</div>
-				</div>
-			</form>
 		</div>
 	</div>
 </section>
-
-
 
 <?php $view->component('end') ?>

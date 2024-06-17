@@ -4,7 +4,9 @@ use App\Controllers\CatalogController;
 use App\Controllers\HomeController;
 use App\Controllers\ProfileController;
 use App\Controllers\LogInController;
+use App\Controllers\HistoryController;
 use App\Controllers\RegisterController;
+use App\Controllers\CartController;
 use App\Controllers\AdminController;
 use App\Controllers\StationController;
 use App\Controllers\ModelController;
@@ -14,6 +16,7 @@ use App\Middleware\GuestMiddleware;
 
 return[
     Route::get('/', [HomeController::class, 'index']),
+  	Route::get('/cart', [CartController::class, 'index']),
     Route::get('/catalog', [CatalogController::class, 'index']),
     Route::get('/profile', [ProfileController::class, 'index']),
     Route::get('/admin', [AdminController::class, 'index']),
@@ -33,3 +36,4 @@ return[
     Route::post('/login', [LogInController::class, 'login']),
     Route::post('/logout', [LogInController::class, 'logout']),
 ];
+
