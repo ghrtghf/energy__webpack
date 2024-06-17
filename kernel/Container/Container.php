@@ -22,12 +22,17 @@ use App\Kernel\Database\DatabaseInterface;
 use App\Kernel\Database\Database;
 use App\Kernel\Storage\StorageInterface;
 use App\Kernel\Storage\Storage;
+use App\Kernel\Translater\TranslaterInterface;
+use App\Kernel\Translater\Translater;
+
+
 
 
 class Container
 {
     public readonly RequestInterface $request;
     public readonly RouterInterface $router;
+    private readonly TranslaterInterface $translater;
     public readonly ViewInterface $view;
     public readonly ValidatorInterface $validator;
     public readonly RedirectInterface $redirect;
@@ -50,12 +55,14 @@ class Container
         $this->redirect = new Redirect();
         $this->session = new Session();
         $this->config = new Config();
+        $this->translater = new Translater($this->config);
         $this->database = new Database($this->config);
         $this->auth = new Auth( $this->database, $this->session, $this->config);
         $this->storage = new Storage($this->config);
-        $this->view = new View($this->session, $this->auth);
+        $this->view = new View($this->session, $this->auth, $this->storage, $this->translater);
         $this->router = new Router(
             $this->view, 
+            $this->translater,
             $this->request, 
             $this->redirect, 
             $this->session, 

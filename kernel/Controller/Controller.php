@@ -11,12 +11,15 @@ use App\Kernel\Http\RequestInterface;
 use App\Kernel\Session\Session;
 use App\Kernel\Session\SessionInterface;
 use App\Kernel\Storage\StorageInterface;
+use App\Kernel\Translater\TranslaterInterface;
 use App\Kernel\View\View;
 use App\Kernel\View\ViewInterface;
 
 abstract class Controller
 {
     private ViewInterface $view;
+
+    private TranslaterInterface $translater;
 
     private RequestInterface $request;
 
@@ -30,13 +33,22 @@ abstract class Controller
 
     private StorageInterface $storage;
 
-    public function view(string $name):void
+    public function view(string $name, array $data=[]):void
     {
-        $this->view->page($name);
+        $this->view->page($name, $data);
     }
     public function setView(View $view): void
     {
         $this->view = $view;
+    }
+
+    public function translater(): TranslaterInterface
+    {
+        return $this->translater;
+    }
+    public function setTranslater(TranslaterInterface $translater): void
+    {
+        $this->translater = $translater;
     }
 
     public function request(): RequestInterface

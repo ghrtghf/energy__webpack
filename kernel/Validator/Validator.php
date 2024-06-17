@@ -67,7 +67,7 @@ class Validator implements ValidatorInterface
         case 'required':
             //проверяем значение на пустоту
             if(empty($value)){
-                return "Field $key is required";
+                return "Поле $key должно быть заполнено";
             }
 
             break;
@@ -75,28 +75,28 @@ class Validator implements ValidatorInterface
         case 'min':
             //проверяем длину строки на минимальное значение
             if(strlen($value)<$ruleValue){
-                return "Field $key must be at least $ruleValue characters long";
+                return "В поле $key должно быть минимум $ruleValue символов";
             }
             break;
         //если валидация max
         case 'max':
             //проверяем длину строки на максимальное значение
             if(strlen($value)>$ruleValue){
-                return "Field $key must be at most $ruleValue characters long";
+                return "В поле $key должно быть максимум $ruleValue символов";
             }
             break;
         //если валидация email
         case 'email':
             //проверяем значение на соответствие формату email
             if(!filter_var($value,FILTER_VALIDATE_EMAIL)){
-                return "Field $key must be a valid email address";
+                return "Не верно введена электронная почта";
             }
             break;
         //если валидация confirmed
         case 'confirmed':
             //сравниваем значение с подтверждающем полем
             if($value != $this->data[$key."_confirm"]){
-                return "Field $key must be confirmed";
+                return "Поле $key не совпадает";
             }
             break;
        }

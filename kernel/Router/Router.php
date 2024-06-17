@@ -10,6 +10,7 @@ use App\Kernel\Http\RequestInterface;
 use App\Kernel\Session\SessionInterface;
 use App\Kernel\View\ViewInterface;
 use App\Kernel\Middleware\AbstractMiddleware;
+use App\Kernel\Translater\TranslaterInterface;
 use App\Kernel\Middleware\MiddlewareInterface;
 use App\Kernel\Storage\StorageInterface;
 
@@ -22,6 +23,7 @@ class Router implements RouterInterface
 
     public function __construct(
         private ViewInterface $view,
+        private TranslaterInterface $translater,
         private RequestInterface $request,
         private RedirectInterface $redirect,
         private SessionInterface $session,
@@ -57,6 +59,7 @@ class Router implements RouterInterface
             $controller = new $controller();
 
             call_user_func([$controller, 'setView'], $this->view);
+            call_user_func([$controller, 'setTranslater'], $this->translater);
             call_user_func([$controller, 'setRequest'], $this->request);
             call_user_func([$controller, 'setRedirect'], $this->redirect);
             call_user_func([$controller, 'setSession'], $this->session);

@@ -35,7 +35,7 @@ class RegisterController extends Controller
             $this->redirect('/signUp');
         }
 
-        $this->db()->insert('users', [
+        $this->db()->insert('Users', [
             'email' => $this->request()->input('email'),
             'name' => $this->request()->input('name'),
             'phone' => $this->request()->input('telephone'),
