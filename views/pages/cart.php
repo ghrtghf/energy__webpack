@@ -132,9 +132,4 @@
 	</div>
 </section>
 
-
-
-
-
-
 <?php $view->component('end') ?>

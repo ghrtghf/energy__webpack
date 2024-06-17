@@ -3,7 +3,7 @@
 //массив с информацией о бд
 return[
     'driver' => 'mysql',
-    'host' => 'localhost',
+    'host' => 'MySQL-8.0',
     'database' => 'energo_plus',
     'username' => 'root',
     'password' => '',
