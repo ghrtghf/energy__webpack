@@ -35,6 +35,11 @@ class Request implements RequestInterface
     {
         return $this->server['REQUEST_METHOD'];
     }
+    
+    public function all(): mixed
+    {   
+        return $this->post ?? $this->get;
+    }
 
     public function input(string $key, $default = null): mixed
     {

@@ -1,7 +1,7 @@
 <?php
 
 return [
-   'table' => 'users',
+   'table' => 'Users',
    'username' => 'email',
    'password' => 'password',
    'session_field' => 'user_id',

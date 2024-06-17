@@ -13,6 +13,8 @@ interface RequestInterface
 
     public function method(): string;
 
+    public function all(): mixed;
+
     public function input(string $key, $default = null): mixed;
 
     public function file(string $key): ?UploadedFileInterface;

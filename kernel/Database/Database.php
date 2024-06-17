@@ -54,7 +54,57 @@ class Database implements DatabaseInterface
         return (int) $this->pdo->lastInsertId();
     }
 
+    //функция для поиска данных из бд и вывода первого значения
+    //передаем в нее название таблицы и опционально наименование поля
     public function first(string $table, array $conditions = []): ?array
+    {
+        //создаем пустую переменную where
+        $where = '';
+
+        //если есть наименование поля 
+        if (count($conditions) > 0) {
+            //создаем в переменной where форму sql запроса на поиск
+            $where = 'WHERE '.implode(' AND ', array_map(fn ($field) => "$field = :$field", array_keys($conditions)));
+        }
+
+        //создаем в переменной sql запрос на вывод из бд
+        $sql = "SELECT * FROM $table $where LIMIT 1";
+
+        //подготавлеваем sql запрос к выполнению
+        $stmt = $this->pdo->prepare($sql);
+
+        //выполняем sql запрос 
+        $stmt->execute($conditions);
+
+        //вписывем результат в переменную в виде ассоциативного массива
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        //возвращаем результат
+        return $result ?: null;
+    }
+
+    public function get(string $table,array $conditions = []): array
+    {
+        $where = '';
+
+        if (count($conditions) > 0) {
+            //создаем в переменной where форму sql запроса на поиск
+            $where = 'WHERE '.implode(' AND ', array_map(fn ($field) => "$field = :$field", array_keys($conditions)));
+        }
+
+        //создаем в переменной sql запрос на вывод из бд
+        $sql = "SELECT * FROM $table $where";
+
+        //подготавлеваем sql запрос к выполнению
+        $stmt = $this->pdo->prepare($sql);
+
+        //выполняем sql запрос 
+        $stmt->execute($conditions);
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function delete(string $table, array $conditions = []): void
     {
         $where = '';
 
@@ -62,15 +112,30 @@ class Database implements DatabaseInterface
             $where = 'WHERE '.implode(' AND ', array_map(fn ($field) => "$field = :$field", array_keys($conditions)));
         }
 
-        $sql = "SELECT * FROM $table $where LIMIT 1";
+        $sql = "DELETE FROM $table $where";
 
         $stmt = $this->pdo->prepare($sql);
 
         $stmt->execute($conditions);
+    }
 
-        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+    public function update(string $table, array $data, array $conditions = []): void
+    {
+        $fields = array_keys($data);
 
-        return $result ?: null;
+        $set = implode(', ', array_map(fn ($field) => "$field = :$field", $fields));
+
+        $where = '';
+
+        if (count($conditions) > 0) {
+            $where = 'WHERE '.implode(' AND ', array_map(fn ($field) => "$field = :$field", array_keys($conditions)));
+        }
+
+        $sql = "UPDATE $table SET $set $where";
+
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->execute(array_merge($data, $conditions));
     }
 
     //функция для подключения к бд
