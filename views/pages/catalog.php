@@ -13,7 +13,7 @@
 
 		<div class="catalog__inner">
 			<div class="catalog__item">
-				<a href="./" class="catalog__hover">
+				<a href="./item" class="catalog__hover">
 					<div class="catalog__price">
 						500000 РУБ
 					</div>
@@ -24,7 +24,7 @@
 					<img class="catalog__img" src="./assets/img/catalog/1.png" alt="">
 				</a>
 
-				<a href="./" class="catalog__button">
+				<a href="./item" class="catalog__button">
 					<span>зарядное устройство universal</span>
 				</a>
 			</div>

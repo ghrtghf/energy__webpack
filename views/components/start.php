@@ -81,8 +81,3 @@
 				</nav>
 			</header>
 		</div>
-</head>
-
-<body>
-
-
