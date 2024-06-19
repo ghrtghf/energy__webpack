@@ -436,14 +436,14 @@
 	padding: 10px 12px;
 	margin-left: 22px;
 }
-@keyframes ticker {
-	0% {
-		transform: translateX(100%);
-	}
-	100% {
-		transform: translateX(-100%);
-	}
-}
+// @keyframes ticker {
+// 	0% {
+// 		transform: translateX(100%);
+// 	}
+// 	100% {
+// 		transform: translateX(-100%);
+// 	}
+// }
 .catalog__img-left {
 	border-radius: 50px;
 	object-fit: cover;
