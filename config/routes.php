@@ -7,6 +7,7 @@ use App\Controllers\LogInController;
 use App\Controllers\HistoryController;
 use App\Controllers\RegisterController;
 use App\Controllers\CartController;
+use App\Controllers\ItemController;
 use App\Controllers\AdminController;
 use App\Controllers\StationController;
 use App\Controllers\ModelController;
@@ -18,6 +19,7 @@ return[
     Route::get('/', [HomeController::class, 'index']),
   	Route::get('/cart', [CartController::class, 'index']),
   	Route::get('/history', [HistoryController::class, 'index']),
+  	Route::get('/item', [ItemController::class, 'index']),
     Route::get('/catalog', [CatalogController::class, 'index']),
     Route::get('/profile', [ProfileController::class, 'index'], [AuthMiddleware::class]),
     Route::post('/profile', [ProfileController::class, 'update']),

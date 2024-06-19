@@ -3,13 +3,29 @@ import { initMap } from './map.js';
 
 const preloading = document.querySelector('.preloading');
 const body = document.querySelector('body');
-body.classList.add('hidden-scroll');
+// body.classList.add('hidden-scroll');
 
 window.addEventListener('load', () => {
 	preloading.style.display = 'none';
 	animation();
 	initMap();
-	body.classList.remove('hidden-scroll');
+	// body.classList.remove('hidden-scroll');
+});
+
+new Swiper('.item__swiper', {
+	// Optional parameters
+	direction: 'horizontal',
+	simulateTouch: true,
+	grabCursor: true,
+
+	pagination: {
+		el: '.swiper-pagination',
+	},
+
+	navigation: {
+		nextEl: '.swiper__circle-next',
+		prevEl: '.swiper__circle-prev',
+	},
 });
 
 VANTA.HALO({
