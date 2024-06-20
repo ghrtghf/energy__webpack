@@ -23,7 +23,9 @@ a {
   padding: 0 15px;
 }
 
-
+.overflow {
+	overflow-x: hidden;
+}
 body,
 html {
   height: 100%;
@@ -33,6 +35,7 @@ html {
   width: 100%;
   position: relative;
   // overflow: hidden;
+  // overflow-x: auto;
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;

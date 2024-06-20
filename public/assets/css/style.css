@@ -23,6 +23,10 @@ a {
   padding: 0 15px;
 }
 
+.overflow {
+  overflow-x: hidden;
+}
+
 body,
 html {
   height: 100%;
@@ -607,14 +611,6 @@ select {
   margin-left: 22px;
 }
 
-@keyframes ticker {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 .catalog__img-left {
   border-radius: 50px;
   -o-object-fit: cover;
