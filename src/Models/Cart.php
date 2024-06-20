@@ -6,7 +6,13 @@ class Cart
 {
     public function __construct(
         private int $id,
-        private int $count
+        private int $count,
+        private int $model_id,
+        private string $name,
+        private string $price,
+        private string $image,
+        private int $station_id,
+        private string $station
     ){
     }
 
@@ -18,5 +24,40 @@ class Cart
     public function count(): int
     {
         return $this->count;
+    }
+
+    public function model_id():int
+    {
+        return $this->model_id;
+    }
+
+    public function name():string
+    {
+        return $this->name;
+    }
+
+    public function price():string
+    {
+        return $this->price;
+    }
+
+    public function image():string
+    {
+        return $this->image;
+    }
+
+    public function station_id():int
+    {
+        return $this->station_id;
+    }
+
+    public function station():string
+    {
+        return $this->station;
+    }
+
+    public function sumItem()
+    {
+        return $this->count * $this->price;
     }
 }

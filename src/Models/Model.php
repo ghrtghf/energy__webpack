@@ -55,4 +55,11 @@ class Model
     {
         return $this->station_id;
     }
+
+    public function search($id)
+	{
+		if($this->id() == $id){
+			return $this->all();
+		}
+	}
 }

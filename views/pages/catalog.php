@@ -18,7 +18,7 @@
 		<div class="catalog__inner">
 			<?php foreach($models as $model){ ?>
 			<div class="catalog__item">
-				<a href="./" class="catalog__hover">
+				<a href="/item?id=<?=$model->id()?>" class="catalog__hover">
 					<div class="catalog__price">
 						<?= $model->price() ?> РУБ
 					</div>
@@ -26,7 +26,7 @@
 						<span>подробнее</span>
 						<img src="./assets/img/catalog/arrow.svg" alt="">
 					</div>
-					<img class="catalog__img" src="<?= $storage->url($model->image())  ?>" alt="">
+					<img class="catalog__img" src="<?= $storage->url($model->image()) ?>" alt="">
 				</a>
 
 				<a href="./" class="catalog__button">

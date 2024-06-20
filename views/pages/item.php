@@ -2,6 +2,9 @@
 
 /** 
  * @var \App\Kernel\View\View $view
+ * @var \App\Models\Model $model
+ * @var \App\Models\Station $station
+ * @var \App\Kernel\Storage\StorageInterface $storage
  */
 ?>
 
@@ -9,16 +12,16 @@
 
 <section class='item'>
 	<div class='wrapper'>
-		<h1 class="item__title">зарядное устройство Ocpp</h1>
+		<h1 class="item__title"><?= $station->name() ?> <?= $model->name() ?></h1>
 		<div class="item__main">
 			<div class="item__swiper-overflow">
 				<div class="item__swiper swiper">
 					<div class="item__swiper-wrapper swiper-wrapper">
 						<div class="item__slide swiper-slide">
-							<img src="./assets/img/catalog/item1.png" alt="">
+							<img src="<?= $storage->url($model->image())?>" alt="">
 						</div>
 						<div class="item__slide swiper-slide">
-							<img src="./assets/img/catalog/item1.png" alt="">
+							<img src="<?= $storage->url($model->image())?>" alt="">
 						</div>
 
 					</div>
@@ -45,37 +48,14 @@
 			<div class="item__content">
 				<div class="item__header">
 					<button class="item__price">
-						1000000 <span>РУБ</span>
+						<?= $model->price() ?> <span>РУБ</span>
 					</button>
 					<div class="item__info">
-						<p>защита от проникновения IP54, IK10 </p>
-						<p>вы можете использовать устройство на открытом воздухе и не беспокоиться даже в дождливые дни. Корпус изготовлен из металлической пластины, поэтому его нелегко повредить.</p>
-					</div>
-					<div class="item__spec">
-						<h2>характеристики:</h2>
-						<p>Модель: <span>PEVC3107</span></p>
-						<p>Кто Чмо: <span>Я?</span></p>
-						<p>Может он: <span>может он</span></p>
-						<p>а может и я: <span>не точно не я</span></p>
-						<p>согласен он чмо <span>...</span></p>
-						<p>так притом ещё тупое <span>мда</span></p>
-						<p>шок <span>точно</span></p>
-						<p>Модель: <span>PEVC3107</span></p>
-						<p>Кто Чмо: <span>Я?</span></p>
-						<p>Может он: <span>может он</span></p>
-						<p>а может и я: <span>не точно не я</span></p>
-						<p>согласен он чмо <span>...</span></p>
-						<p>так притом ещё тупое <span>мда</span></p>
-						<p>шок <span>точно</span></p>
-						<p>Модель: <span>PEVC3107</span></p>
-						<p>Кто Чмо: <span>Я?</span></p>
-						<p>Может он: <span>может он</span></p>
-						<p>а может и я: <span>не точно не я</span></p>
-						<p>согласен он чмо <span>...</span></p>
-						<p>так притом ещё тупое <span>мда</span></p>
-						<p>шок <span>точно</span></p>
+						<p><?= $station->body_protection() ?> </p>
+						<p><?= $model->description() ?></p>
 					</div>
 				</div>
+				<form action="/item" method="post">
 				<div class="item__footer">
 					<h2>количество:</h2>
 					<div class="item__bottom">
@@ -85,7 +65,8 @@
 									<line y1="0.5" x2="13" y2="0.5" stroke="black" />
 								</svg>
 							</div>
-							<input class="cart__input" type="text" value="1" disabled>
+							
+							<input class="cart__input" type="text" name="count"  value="1">
 							<div class="cart__button counter-plus">
 								<svg class="svg-plus" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<line class="svg-plus" y1="6.5" x2="13" y2="6.5" stroke="black" />
@@ -93,14 +74,17 @@
 								</svg>
 							</div>
 						</div>
+						<input type="hidden" name="id" value="<?= $id ?>">
 						<button class="item__add">
 							<span>добавить в корзину</span>
 							<svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M14.3536 4.35355C14.5488 4.15829 14.5488 3.84171 14.3536 3.64645L11.1716 0.464466C10.9763 0.269204 10.6597 0.269204 10.4645 0.464466C10.2692 0.659728 10.2692 0.976311 10.4645 1.17157L13.2929 4L10.4645 6.82843C10.2692 7.02369 10.2692 7.34027 10.4645 7.53553C10.6597 7.7308 10.9763 7.7308 11.1716 7.53553L14.3536 4.35355ZM0 4.5H14V3.5H0V4.5Z" fill="white" />
 							</svg>
 						</button>
+						
 					</div>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>

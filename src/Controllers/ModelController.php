@@ -14,7 +14,6 @@ class ModelController extends Controller
         $model = $this->service()->find($this->request()->input('id'));
         $station = new StationService($this->db());
 
-
         $this->view('admin/model/update', [
             'model' => $model,
             'stations' => $station->all()

@@ -54,7 +54,7 @@ class ModelService
         ];
 
         if ($image && ! $image->hasError()) {
-            $data['image'] = $image->move('models');
+            $data['image'] = $image->move('catalog');
         }
 
         $this->db->update('models', $data, [

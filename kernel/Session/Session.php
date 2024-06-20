@@ -17,10 +17,20 @@ class Session implements SessionInterface
         $_SESSION[$key] = $value;
     }
 
+    public function setDuble($key1, $key2, $value)
+    {
+        $_SESSION[$key1][$key2] = $value;
+    }
+
     //класс для получения данных из сессии
     public function get(string $key, $default = null)
     {
         return $_SESSION[$key] ?? $default;
+    }
+
+    public function getDuble($key1, $key2, $default = null)
+    {
+        return $_SESSION[$key1][$key2] ?? $default;
     }
 
     //класс для получения данных из сессии и удаления их

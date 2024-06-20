@@ -39,5 +39,8 @@ return[
     Route::get('/login', [LogInController::class, 'index'], [GuestMiddleware::class]),
     Route::post('/login', [LogInController::class, 'login']),
     Route::post('/logout', [LogInController::class, 'logout']),
+    Route::get('/item', [CatalogController::class, 'show']),
+    Route::post('/item', [CatalogController::class, 'store']),
+    Route::get('/deleteItem', [CartController::class, 'delete']),
 ];
 
