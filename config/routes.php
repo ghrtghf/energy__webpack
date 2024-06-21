@@ -41,6 +41,9 @@ return[
     Route::post('/logout', [LogInController::class, 'logout']),
     Route::get('/item', [CatalogController::class, 'show']),
     Route::post('/item', [CatalogController::class, 'store']),
-    Route::get('/deleteItem', [CartController::class, 'delete']),
+    Route::post('/deleteItem', [CartController::class, 'delete']),
+    Route::get('/plusItem', [CartController::class, 'plus']),
+    Route::get('/minusItem', [CartController::class, 'minus']),
+    Route::post('/buy', [CartController::class, 'buy']),
 ];
 

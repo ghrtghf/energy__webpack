@@ -14,7 +14,7 @@ class ProfileController extends Controller
     public function update(): void
     {
         $validdation = $this->request()->validate([
-            'name' => ['max:255'],
+            'name' => ['min:3','max:255'],
             'email' => ['email'],
             'phone' => ['min:10', 'max:255'],
             'password' => ['max:255'],

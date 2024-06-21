@@ -33,5 +33,32 @@ class CartController extends Controller
 		$this->redirect('/cart');
 	}
 
-	
+	public function plus():void
+	{
+		$cart = new CartService($this->session(), $this->db());
+
+		$cart->plus($this->request()->input('cart_id'));
+
+		$this->redirect('/cart');
+	}
+
+	public function minus():void
+	{
+		$cart = new CartService($this->session(), $this->db());
+
+		$cart->minus($this->request()->input('cart_id'));
+
+		$this->redirect('/cart');
+	}
+
+	public function buy():void
+	{
+		$cart = new CartService($this->session(), $this->db());
+
+		if(!empty($cart->all())){
+			$cart->buy($this->auth()->user());
+		}
+
+		$this->redirect('/cart');
+	}
 }

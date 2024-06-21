@@ -23,6 +23,7 @@ class Database implements DatabaseInterface
     //принимаем название таблицы и массив данных
     public function insert(string $table, array $data): int|false
     {
+        
         //возвращаем ключи принятых колонок 
         $fields = array_keys($data);
 
@@ -31,14 +32,13 @@ class Database implements DatabaseInterface
         //проходимся по вписываемым данным перечисляем их через запятую и добавляем двоеточие
         $binds = implode(',',array_map(fn ($field)=>":$field", $fields));
 
+        
         //создаем sql запрос
         //вписываем принятое название таблицы и преобразованные строки
         $sql = "INSERT INTO $table ($columns) VALUES ($binds)";
 
         //готовим sql запрос к выполнению
         $stmt = $this->pdo->prepare($sql);
-
-
 
         //выполняем проверку на исключения
         try {
@@ -47,8 +47,11 @@ class Database implements DatabaseInterface
             $stmt->execute($data);
         }catch (\PDOException $exception) { 
             //если получаем исключения то возврашаем false
+            dd($exception);
             return false;
         }
+
+        
 
         //возвращаем id только что вписаной записи
         return (int) $this->pdo->lastInsertId();
@@ -136,6 +139,11 @@ class Database implements DatabaseInterface
         $stmt = $this->pdo->prepare($sql);
 
         $stmt->execute(array_merge($data, $conditions));
+    }
+
+    public function lastId():int
+    {
+        return $this->pdo->lastInsertId();
     }
 
     //функция для подключения к бд

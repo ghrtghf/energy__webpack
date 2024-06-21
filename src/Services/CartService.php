@@ -15,15 +15,16 @@ class CartService
     {
     }
 
-    public function all(): array
+    public function all()
     {
         $carts = $this->session->get('cart');
+
+        if(isset($carts)){
 
         return array_map(function($carts){
             return new Cart(
                 $carts['id'],
                 $carts['count'],
-                $carts['model_id'],
                 $carts['model_name'],
                 $carts['model_price'],
                 $carts['model_image'],
@@ -32,6 +33,9 @@ class CartService
             );
             
         }, $carts);
+        }
+
+        return null;
     }
 
     public function store(int $id, int $count)
@@ -69,7 +73,6 @@ class CartService
         $cart["product $id"] = [
             'id' => $id,
             'count' => $count,
-            'model_id' => $model_gen->id(),
             'model_name' => $model_gen->name(),
             'model_price' => $model_gen->price(),
             'model_image' => $model_gen->image(),
@@ -104,7 +107,11 @@ class CartService
 
         foreach($cart as $key => $value){
             if($value['id'] == $id){
+                if($value['count'] == 1){
+                    return $this->unsetItem($id);
+                }
                 $cart[$key]['count']-- ;
+                
             }
         }
 
@@ -127,5 +134,34 @@ class CartService
     public function getCart()
     {
         return $this->session->get('cart');
+    }
+
+    public function buy($user)
+    {
+        $carts = $this->all();
+
+        $sum = 0;
+
+        foreach($carts as $cart){
+            $sum += $cart->sumItem();
+        }
+
+        $this->db->insert('requests',[
+            'user_name' => $user->name(),
+            'user_contact' => $user->phone(),
+        ]);
+
+        $id = $this->db->lastId();
+
+        foreach($carts as $cart){
+            $this->db->insert('ListRequests',[
+            'model_id' => $cart->id(),
+            'request_id' => $id,
+            'count' => $cart->count(),
+            'cost' => $cart->sumItem()
+        ]);
+        }
+
+        return $this->unset();
     }
 }

@@ -7,7 +7,6 @@ class Cart
     public function __construct(
         private int $id,
         private int $count,
-        private int $model_id,
         private string $name,
         private string $price,
         private string $image,
@@ -24,11 +23,6 @@ class Cart
     public function count(): int
     {
         return $this->count;
-    }
-
-    public function model_id():int
-    {
-        return $this->model_id;
     }
 
     public function name():string

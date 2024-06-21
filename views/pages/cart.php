@@ -10,10 +10,13 @@
  $total_count = 0;
  $sum = 0;
 
+ if(isset($carts)){
+
  foreach($carts as $cart){
 	$total_count += $cart->count();
 	$sum += $cart->sumItem();
- }
+ }}
+
 ?>
 
 
@@ -55,9 +58,11 @@
 				<div class="cart__items">
 					<p>Товары</p>
 				</div>
-				<button class="cart__buy">
-					<span>Оформить</span>
-				</button>
+				<form action="/buy" method="post">
+					<button class="cart__buy">
+						<span>Оформить</span>
+					</button>
+				</form>
 			</div>
 			<div class="cart__inner">
 				<div class="cart__content">
@@ -73,30 +78,37 @@
 							<img src="<?= $storage->url($cart->image()) ?>" alt="">
 							<div class="cart__name">
 								<p><?php echo $cart->station() . ' ' . $cart->name() ?></p>
-								<a href="/deleteItem?cart_id=<?php echo $cart->id() ?>">
-
+								<form action="deleteItem" method="post">
+									<input type="hidden" name="cart_id" value="<?php echo $cart->id() ?>">
+									<button>
 									<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<rect width="32" height="32" rx="4" fill="white" />
 										<path d="M22.4643 9.65625H19.706L18.5676 7.77197C18.2489 7.29308 17.7567 7 17.1942 7H13.8058C13.2433 7 12.721 7.29308 12.433 7.77197L11.294 9.65625H8.53571C8.23856 9.65625 8 9.89299 8 10.1875V10.7188C8 11.0143 8.23856 11.25 8.53571 11.25H9.07143V21.875C9.07143 23.0487 10.0307 24 11.2143 24H19.7857C20.9693 24 21.9286 23.0487 21.9286 21.875V11.25H22.4643C22.7623 11.25 23 11.0143 23 10.7188V10.1875C23 9.89299 22.7623 9.65625 22.4643 9.65625ZM13.7556 8.68938C13.7891 8.63127 13.856 8.59375 13.9263 8.59375H17.0737C17.1448 8.59375 17.2118 8.6311 17.2453 8.68921L17.8304 9.65625H13.1696L13.7556 8.68938ZM19.7857 22.4062H11.2143C10.9184 22.4062 10.6786 22.1684 10.6786 21.875V11.25H20.3214V21.875C20.3214 22.1672 20.0804 22.4062 19.7857 22.4062ZM15.5 20.8125C15.7961 20.8125 16.0357 20.5749 16.0357 20.2812V13.375C16.0357 13.0814 15.7961 12.8438 15.5 12.8438C15.2039 12.8438 14.9643 13.0828 14.9643 13.375V20.2812C14.9643 20.5734 15.2054 20.8125 15.5 20.8125ZM12.8214 20.8125C13.1161 20.8125 13.3571 20.5734 13.3571 20.2812V13.375C13.3571 13.0814 13.1175 12.8438 12.8214 12.8438C12.5253 12.8438 12.2857 13.0828 12.2857 13.375V20.2812C12.2857 20.5734 12.5268 20.8125 12.8214 20.8125ZM18.1786 20.8125C18.4747 20.8125 18.7143 20.5749 18.7143 20.2812V13.375C18.7143 13.0814 18.4747 12.8438 18.1786 12.8438C17.8825 12.8438 17.6429 13.0828 17.6429 13.375V20.2812C17.6429 20.5734 17.8839 20.8125 18.1786 20.8125Z" fill="black" />
 									</svg>
-								</a>
+									</button>
+								</form>
 							</div>
 							<p class="cart__price">
 								<?= $cart->price() ?><span>РУБ</span>
 							</p>
+							
 							<div class="cart__counter" data-counter>
-								<div class="cart__button counter-minus">
-									<svg width="13" height="1" viewBox="0 0 13 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<line y1="0.5" x2="13" y2="0.5" stroke="black" />
-									</svg>
-								</div>
+								<a href="/minusItem?cart_id=<?php echo $cart->id() ?>">
+									<div class="cart__button counter-minus">
+										<svg width="13" height="1" viewBox="0 0 13 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<line y1="0.5" x2="13" y2="0.5" stroke="black" />
+										</svg>
+									</div>
+								</a>
 								<input class="cart__input" type="text" value="<?= $cart->count() ?>" disabled>
-								<div class="cart__button counter-plus">
-									<svg class="svg-plus" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<line class="svg-plus" y1="6.5" x2="13" y2="6.5" stroke="black" />
-										<line class="svg-plus" x1="6.5" x2="6.5" y2="13" stroke="black" />
-									</svg>
-								</div>
+								<a href="/plusItem?cart_id=<?php echo $cart->id() ?>">
+									<div class="cart__button counter-plus">
+										<svg class="svg-plus" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<line class="svg-plus" y1="6.5" x2="13" y2="6.5" stroke="black" />
+											<line class="svg-plus" x1="6.5" x2="6.5" y2="13" stroke="black" />
+										</svg>
+									</div>
+								</a>
 							</div>
 						</div>
 					</div>
