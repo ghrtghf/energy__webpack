@@ -148,6 +148,7 @@ class CartService
 
         $this->db->insert('requests',[
             'user_name' => $user->name(),
+            'UserID' => $user->id(),
             'user_contact' => $user->phone(),
         ]);
 

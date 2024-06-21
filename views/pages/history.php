@@ -2,7 +2,16 @@
 
 /** 
  * @var \App\Kernel\View\View $view
+ * @var \App\Kernel\Storage\StorageInterface $storage
  */
+
+$Request = $requests->userRequest(1);
+
+$listRequests = [];
+
+foreach($Request as $req){
+	$listRequests = array_merge($listRequests, $requests->requestListRequest($req->id()));
+}
 ?>
 
 <?php $view->component('start') ?>
@@ -50,14 +59,19 @@
 			</div>
 
 			<div class="history__orders">
-				<div class="history__order">
-					<p>#000001</p>
-					<p><img src="./assets/img/catalog/1.png" alt=""></p>
-					<p>от 25.10.24</p>
-					<p>500000 Р.</p>
-					<p>12 шт</p>
-					<p>доставляется</p>
-				</div>
+				<?php foreach($listRequests as $listRequest): ?>
+					<?php $model = $models->find($listRequest->model_id()); 
+						$thisRequest = $requests-> listRequestRequest($listRequest->request_id()); ?>
+
+					<div class="history__order">
+						<p>#<?=$thisRequest->id() ?></p>
+						<p><img src="<?= $storage->url($model->image()) ?>" alt=""></p>
+						<p>от <?= $thisRequest->date_order() ?></p>
+						<p><?= $listRequest->cost() ?> Р.</p>
+						<p><?= $listRequest->count() ?> шт</p>
+						<p><?= $requests->findStatus($listRequest->status_id())->name() ?></p>
+					</div>
+				<?php endforeach; ?>
 			</div>
 
 		</div>
