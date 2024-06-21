@@ -2,5 +2,5 @@
 
 return [
     'name' => 'energoPlus',
-    'url' => 'https://energoplus',
+    'url' => 'http://energy2',
 ];

@@ -82,7 +82,7 @@
 						<?php if($auth->check()){ ?>
 							<?php if($request->uri() == "/profile"){ ?>
 								<form action="/logout" method="post">
-									<button class="header__link">выйти</button>
+									<button class="header__li">выйти</button>
 								</form>
 							<?php }else{ ?>
 							<li class="header__li"><a href="./profile" class="header__link">профиль</a></li>
