@@ -1,0 +1,336 @@
+.admin {
+	&__main {
+		position: relative;
+		display: flex;
+		// justify-content: right;
+		margin-top: 126px;
+		flex-direction: column;
+		// align-items: flex-end;
+		gap: 20px;
+	}
+
+	&__content {
+		margin-left: 176px;
+		display: flex;
+		// justify-content: space-between;
+		align-items: center;
+		gap: 20px;
+	}
+	&__orders {
+		border-radius: 30px;
+		width: 500px;
+		height: 538px;
+		background: #f7f8f9;
+	}
+	&__header {
+		height: 80px;
+		border-radius: 30px 30px 0 0;
+		background: #a5eeff;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		color: #fff;
+		padding: 0 20px;
+		h2 {
+			font-weight: 500;
+			font-size: 32px;
+			color: #fff;
+			margin: 0;
+		}
+		p {
+			cursor: pointer;
+			font-weight: 500;
+			font-size: 14px;
+			text-transform: lowercase;
+			color: #fff;
+			margin: 0;
+		}
+	}
+
+	&__order {
+		border-radius: 10px;
+		width: 460px;
+		height: 96px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: #fff;
+		margin: 0 20px;
+		padding: 0 20px;
+		margin-bottom: 20px;
+	}
+	&__order-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 96px;
+		padding: 10px 0;
+	}
+	&__order-tel {
+		font-weight: 500;
+		font-size: 16px;
+		color: #000;
+		margin: 0;
+	}
+	&__order-name {
+		margin: 0;
+		font-weight: 500;
+		font-size: 14px;
+		text-transform: lowercase;
+		color: #000;
+	}
+
+	&__order-id {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 96px;
+		padding: 10px 0;
+		select {
+			border-radius: 10px;
+			width: 150px;
+			height: 44px;
+			background: #e4c0ff;
+			outline: 0;
+			border: none;
+			appearance: none;
+			cursor: pointer;
+			font-weight: 500;
+			font-size: 14px;
+			color: #fff;
+			text-align: center;
+			color: #fff;
+		}
+		p {
+			font-weight: 500;
+			font-size: 16px;
+			color: #000;
+			margin: 0;
+		}
+	}
+	&__items {
+		width: 700px;
+		height: 538px;
+		border-radius: 30px;
+		background: #f7f8f9;
+	}
+
+	&__item-wrapper {
+		display: flex;
+		padding: 0 40px;
+		gap: 20px;
+		justify-content: left;
+		height: 458px;
+		padding-top: 20px;
+	}
+
+	&__order-wrapper {
+		height: 458px;
+		padding-top: 20px;
+		overflow: hidden;
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
+		max-height: 200px;
+		img {
+			border-radius: 30px;
+			width: 105px;
+			height: 118px;
+			margin-bottom: 14px;
+		}
+		svg {
+			position: absolute;
+			top: 0;
+			right: 5px;
+			cursor: pointer;
+		}
+		h3 {
+			font-weight: 500;
+			font-size: 14px;
+			text-transform: lowercase;
+			text-align: center;
+			color: #000;
+			max-width: 125px;
+			margin: 0;
+		}
+	}
+	&__content-add {
+		display: flex;
+		gap: 20px;
+	}
+	&__stations {
+		width: 100%;
+	}
+	&__models {
+		border-radius: 30px;
+		min-height: 282px;
+		background: #f7f8f9;
+		margin-left: 176px;
+		width: 500px;
+	}
+	&__models-add {
+		padding: 0 20px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		width: 500px;
+		margin-bottom: 20px;
+		form {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: left;
+			gap: 20px;
+			input {
+				width: 200px;
+				border: 1px solid #000;
+				outline: none;
+				background: none;
+				height: 40px;
+				padding: 0 20px;
+				appearance: none;
+				border-radius: 30px;
+				font-size: 14px;
+				text-transform: lowercase;
+				color: #000;
+				font-weight: 500;
+				font-family: $font-main;
+			}
+			p {
+				margin: 0;
+				padding-bottom: 10px;
+			}
+			textarea {
+				font-size: 14px;
+				text-transform: lowercase;
+				color: #000;
+				font-weight: 500;
+				font-family: $font-main;
+				width: 460px;
+				height: 150px;
+				padding: 20px 20px;
+				border: 1px solid #000;
+				border-radius: 30px;
+				outline: none;
+				background: none;
+				resize: none;
+			}
+			input[type='file'] {
+				position: absolute;
+				background: #000;
+				left: 0;
+				top: 30px;
+				opacity: 0;
+				&::file-selector-button {
+					display: none;
+				}
+				color: #fff;
+				cursor: pointer;
+			}
+			select {
+				width: 200px;
+				appearance: none;
+				border: 1px solid #000;
+				outline: none;
+				background: none;
+				height: 40px;
+				text-align: center;
+				appearance: none;
+				border-radius: 30px;
+				font-size: 14px;
+				text-transform: lowercase;
+				color: #000;
+				font-weight: 500;
+				font-family: $font-main;
+				cursor: pointer;
+			}
+		}
+	}
+	&__models-btn {
+		position: relative;
+		button {
+			width: 200px;
+			border: 1px solid #000;
+			outline: none;
+			height: 40px;
+			padding: 0 20px;
+			background: #000;
+			border-radius: 30px;
+			color: #fff;
+			font-weight: 500;
+			cursor: pointer;
+			font-family: $font-main;
+		}
+	}
+	&__models-button {
+		height: 40px;
+		width: 100%;
+		background: #e4c0ff;
+		cursor: pointer;
+		border-radius: 30px;
+		color: #fff;
+	}
+
+	&__stations-wrapper {
+		padding: 0 20px;
+		height: 200px;
+		border-radius: 0 0 30px 30px;
+		background: #f7f8f9;
+		form {
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			padding-top: 20px;
+			p {
+				margin: 0;
+				margin-bottom: 10px;
+			}
+			input {
+				width: 200px;
+				border: 1px solid #000;
+				outline: none;
+				background: none;
+				height: 40px;
+				padding: 0 20px;
+				appearance: none;
+				border-radius: 30px;
+				font-size: 14px;
+				text-transform: lowercase;
+				color: #000;
+				font-weight: 500;
+				font-family: $font-main;
+			}
+			textarea {
+				font-size: 14px;
+				text-transform: lowercase;
+				color: #000;
+				font-weight: 500;
+				font-family: $font-main;
+				width: 200px;
+				height: 100px;
+				padding: 20px 20px;
+				border: 1px solid #000;
+				border-radius: 30px;
+				outline: none;
+				background: none;
+				resize: none;
+			}
+			button {
+				height: 40px;
+				width: 100px;
+				background: #e4c0ff;
+				cursor: pointer;
+				border-radius: 30px;
+				color: #fff;
+			}
+		}
+	}
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

@@ -6,7 +6,6 @@
 		margin-top: 126px;
 		flex-direction: column;
 		align-items: flex-end;
-
 	}
 
 	&__header {
@@ -131,7 +130,8 @@
 			color: #000;
 			margin: 0;
 		}
-		> svg {
+		button {
+			background: none;
 			cursor: pointer;
 		}
 	}

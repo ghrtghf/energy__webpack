@@ -8,14 +8,18 @@ use App\Services\StationService;
 
 class AdminController extends Controller
 {
-    public function index(): void
-    {
-        $stations = new StationService($this->db());
-        $models = new ModelService($this->db());
+	public function index(): void
+	{
+		$stations = new StationService($this->db());
+		$models = new ModelService($this->db());
 
-        $this->view('admin/index',[
-            'stations' => $stations->all(),
-            'models' => $models->all(),
-        ]);
-    }
+		$this->view('admin/index', [
+			'stations' => $stations->all(),
+			'models' => $models->all(),
+		]);
+	}
+	public function index2(): void
+	{
+		$this->view('admin');
+	}
 }

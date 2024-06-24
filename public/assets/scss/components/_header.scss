@@ -113,6 +113,11 @@
 		display: flex;
 		gap: 1.5rem;
 		margin: 0;
+		button {
+			background: none;
+			cursor: pointer;
+			padding: 0;
+		}
 	}
 	&__li {
 		font-weight: 700;
