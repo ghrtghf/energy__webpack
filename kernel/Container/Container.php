@@ -55,9 +55,9 @@ class Container
         $this->session = new Session();
         $this->config = new Config();
         $this->translater = new Translater($this->config);
-        $this->validator = new Validator($this->translater);
-        $this->request->setValidator($this->validator);
         $this->database = new Database($this->config);
+        $this->validator = new Validator($this->translater, $this->database);
+        $this->request->setValidator($this->validator);
         $this->auth = new Auth( $this->database, $this->session, $this->config);
         $this->storage = new Storage($this->config);
         $this->view = new View($this->session, $this->request, $this->auth, $this->storage, $this->translater, );

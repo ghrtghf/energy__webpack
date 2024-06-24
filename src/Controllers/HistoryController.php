@@ -12,7 +12,8 @@ class HistoryController extends Controller
 	{
 		$this->view('history',[
 			'requests' => new RequestService($this->db()),
-			'models' => new ModelService($this->db())
+			'models' => new ModelService($this->db()),
+			'user_id' => $this->auth()->user()->id()
 		]);
 	}
 }

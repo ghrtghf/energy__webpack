@@ -31,14 +31,17 @@
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M10.2 27.2C8.33 27.2 6.8 28.73 6.8 30.6C6.8 32.47 8.33 34 10.2 34C12.07 34 13.6 32.47 13.6 30.6C13.6 28.73 12.07 27.2 10.2 27.2ZM0 0V3.4H3.4L9.52 16.32L7.14 20.4C6.97 20.91 6.8 21.59 6.8 22.1C6.8 23.97 8.33 25.5 10.2 25.5H30.6V22.1H10.88C10.71 22.1 10.54 21.93 10.54 21.76V21.59L12.07 18.7H24.65C26.01 18.7 27.03 18.02 27.54 17L33.66 5.95C34 5.61 34 5.44 34 5.1C34 4.08 33.32 3.4 32.3 3.4H7.14L5.61 0H0ZM27.2 27.2C25.33 27.2 23.8 28.73 23.8 30.6C23.8 32.47 25.33 34 27.2 34C29.07 34 30.6 32.47 30.6 30.6C30.6 28.73 29.07 27.2 27.2 27.2Z" fill="black" />
 						</svg>
 					</a>
-					<a href="./admin" class="sidebar__link sidebar__circle">
-						<svg width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd" d="M7.99512 7.99513C7.99512 3.57955 11.5747 0 15.9902 0C20.4058 0 23.9854 3.57955 23.9854 7.99513C23.9854 12.4107 20.4058 15.9903 15.9902 15.9903C11.5747 15.9903 7.99512 12.4107 7.99512 7.99513ZM15.9902 3.19805C13.3408 3.19805 11.1932 5.34578 11.1932 7.99513C11.1932 10.6445 13.3408 12.7922 15.9902 12.7922C18.6397 12.7922 20.7873 10.6445 20.7873 7.99513C20.7873 5.34578 18.6397 3.19805 15.9902 3.19805Z" fill="black" />
-							<path d="M3.29702 31.9805C4.0839 25.6703 9.46684 20.7873 15.9903 20.7873C18.6389 20.7873 21.095 21.5905 23.1344 22.9665L24.46 23.8607L26.2486 21.2095L24.9231 20.3153C22.3718 18.5941 19.2959 17.5893 15.9903 17.5893C7.15908 17.5893 0 24.7485 0 33.5796V35.1786H25.5844V31.9805H3.29702Z" fill="black" />
-							<path d="M31.9766 20.7835L32 30.3776L28.8019 30.3853L28.7786 20.7912L31.9766 20.7835Z" fill="black" />
-							<path d="M28.7821 31.9805H31.9961V35.1786H28.7821V31.9805Z" fill="black" />
-						</svg>
-					</a>
+					<?php if($auth->is_admin()){ ?>
+						<a href="./admin" class="sidebar__link sidebar__circle">
+							<svg width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M7.99512 7.99513C7.99512 3.57955 11.5747 0 15.9902 0C20.4058 0 23.9854 3.57955 23.9854 7.99513C23.9854 12.4107 20.4058 15.9903 15.9902 15.9903C11.5747 15.9903 7.99512 12.4107 7.99512 7.99513ZM15.9902 3.19805C13.3408 3.19805 11.1932 5.34578 11.1932 7.99513C11.1932 10.6445 13.3408 12.7922 15.9902 12.7922C18.6397 12.7922 20.7873 10.6445 20.7873 7.99513C20.7873 5.34578 18.6397 3.19805 15.9902 3.19805Z" fill="black" />
+								<path d="M3.29702 31.9805C4.0839 25.6703 9.46684 20.7873 15.9903 20.7873C18.6389 20.7873 21.095 21.5905 23.1344 22.9665L24.46 23.8607L26.2486 21.2095L24.9231 20.3153C22.3718 18.5941 19.2959 17.5893 15.9903 17.5893C7.15908 17.5893 0 24.7485 0 33.5796V35.1786H25.5844V31.9805H3.29702Z" fill="black" />
+								<path d="M31.9766 20.7835L32 30.3776L28.8019 30.3853L28.7786 20.7912L31.9766 20.7835Z" fill="black" />
+								<path d="M28.7821 31.9805H31.9961V35.1786H28.7821V31.9805Z" fill="black" />
+							</svg>
+						</a>
+					<?php } ?>
+
 				</div>
 			</div>
 
@@ -83,39 +86,6 @@
 							<?php if($session->has('password')){ ?>
 								<?php echo $session->getFlash('password')[0] ?>
 							<?php } ?>
-						</label>
-					</div>
-				</div>
-			</form>
-
-			<h2 class="profile__title address__title ">адрес установки <span>изменить</span></h2>
-			<form action="" method="POST" class="profile__form">
-				<input type="submit" class="profile__submit-address" value="сохранить">
-				<div class="profile__row">
-					<div class="profile__index">
-						<label>
-							<p>почтовый индекс</p>
-							<input class="profile__input" type="text" name="index" value="" disabled>
-						</label>
-					</div>
-					<div class="profile__region">
-						<label>
-							<p>край/область/регион</p>
-							<input class="profile__input" type="text" name="region" value="" disabled>
-						</label>
-					</div>
-				</div>
-				<div class="profile__row">
-					<div class="profile__city">
-						<label>
-							<p>город</p>
-							<input class="profile__input" type="text" name="city" value="Уфа" disabled>
-						</label>
-					</div>
-					<div class="profile__street">
-						<label>
-							<p>улица, дом, квартира</p>
-							<input class="profile__input" type="text" name="street" value="" disabled>
 						</label>
 					</div>
 				</div>

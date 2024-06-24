@@ -18,7 +18,7 @@ class RegisterController extends Controller
         $validdation = $this->request()->validate([
             //прописыываем правила валидации
             'user_name' => ['required', 'max:255'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'is_email'],
             'telephone' => ['required', 'min:10', 'max:255'],
             'password' => ['required', 'min:3','max:255', 'confirmed'],
             'password_confirm' => ['required', 'min:3','max:255']
@@ -41,6 +41,8 @@ class RegisterController extends Controller
             'phone' => $this->request()->input('telephone'),
             'password' => password_hash($this->request()->input('password'), PASSWORD_DEFAULT),
         ]);
+
+        $this->auth()->attempt($this->request()->input('email'), $this->request()->input('password'));
 
         $this->redirect('/');
     }

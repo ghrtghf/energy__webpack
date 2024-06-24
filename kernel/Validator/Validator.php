@@ -3,12 +3,14 @@
 namespace App\Kernel\Validator;
 
 use App\Kernel\Translater\TranslaterInterface;
+use App\Kernel\Database\DatabaseInterface;
 
 //класс для работы с валидацией
 class Validator implements ValidatorInterface
 {
     public function __construct(
-        private TranslaterInterface $translater
+        private TranslaterInterface $translater,
+        private DatabaseInterface $db
     ){
     }
     //создаем пустой массив с ошибками
@@ -105,6 +107,11 @@ class Validator implements ValidatorInterface
                 return "Поле ". $this->translater->translate($key)." не совпадает";
             }
             break;
+
+        case 'is_email':
+            if($this->db->first('Users',['email' => $value]) != null){
+                return "Такой email уже зарегистрирован";
+            }
        }
         
        //если ни одно значение не прошло проверку возвращаем false

@@ -70,7 +70,7 @@ class ModelController extends Controller
                 $this->session()->set($field, $errors);
             }
 
-            $this->redirect('/admin/model/add');
+            $this->redirect('/admin2');
         }
 
         $this->service()->store(
@@ -81,7 +81,7 @@ class ModelController extends Controller
             $this->request()->input('station')
         );
 
-        $this->redirect('/admin');
+        $this->redirect('/admin2');
     }
 
     public function destroy()

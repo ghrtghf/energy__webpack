@@ -90,6 +90,21 @@ class Auth implements Authinterface
         return null;
     }
 
+    public function is_admin(): bool
+    {
+        if ($this->check()) {
+            $user = $this->db->first($this->table(), [
+                'id' => $this->session->get($this->sessionField()),
+            ]);
+
+            if($user['is_admin'] == 1){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function table(): string
     {
         return $this->config->get('auth.table', 'Users');

@@ -69,7 +69,7 @@
 							</label>
 							
 						</div>
-						<p class="login__signUp in-signUp">Нет аккаунта? <a href="./register">Зарегистрироваться</a></p>
+						<p class="login__signUp in-signUp">Нет аккаунта? <a href="./signUp">Зарегистрироваться</a></p>
 						<input type="submit" value="Войти" class="login__submit in-submit">
 					</form>
 

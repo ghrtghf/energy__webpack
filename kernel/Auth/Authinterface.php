@@ -11,6 +11,8 @@ interface Authinterface
     public function check(): bool;
 
     public function user(): ?User;
+    
+    public function is_admin(): bool;
 
     public function table(): string;
 

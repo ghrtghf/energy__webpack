@@ -34,6 +34,25 @@ class RequestService
         }, $listRequests);
     }
 
+    public function newListRequests()
+    {
+        $listRequests = $this->db->get('ListRequests',[
+            'status_id' => 1
+        ]);
+
+        return array_map(function($listRequests){
+            
+            return new ListRequest(
+                $listRequests['id'],
+                $listRequests['model_id'],
+                $listRequests['request_id'],
+                $listRequests['count'],
+                $listRequests['cost'],
+                $listRequests['status_id'],
+            );
+        }, $listRequests);
+    }
+
     public function Requests()
     {
         $Requests = $this->db->get('requests');

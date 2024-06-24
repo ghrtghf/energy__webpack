@@ -2,6 +2,7 @@
 
 /** 
  * @var \App\Kernel\View\View $view
+ * @var \App\Kernel\Storage\StorageInterface $storage
  */
 ?>
 
@@ -48,20 +49,36 @@
 						<p class="admin__order-btn">смотреть всё</p>
 					</div>
 					<div class="admin__order-wrapper">
+						<?php foreach($requests->newListRequests() as $listRequest): ?>
+							<?php 
+								$Request = $requests->listRequestRequest($listRequest->request_id());
+								$model = $models->find( $listRequest->model_id() );
+								$station = $stations->find($model->station_id()) 
+							?>
+
 						<div class="admin__order">
 							<div class="admin__order-info">
-								<p class="admin__order-name">зарядное устройство Ukca</p>
-								<p class="admin__order-tel">+79994443333</p>
+								<p class="admin__order-name"><?= $station->name() .' '. $model->name() ?></p>
+
+								<p class="admin__order-tel"><?= $Request->user_contact() ?></p>
 							</div>
 							<div class="admin__order-id">
-								<form action="">
-									<select name="">
-										<option value="">в ожидании</option>
+								<form action="/updateStatus" method="post">
+									<input type="hidden" value="<?= $listRequest->id() ?>" name="id">
+									<select name="status">
+										<?php foreach ($requests->Status() as $status){ ?>
+											
+                        					<option value="<?php echo  $status->id() ?>" <?php echo $status->id() == $listRequest->status_id() ? 'selected' : '' ?>><?php echo $status->name() ?></option>
+											
+                    					<?php } ?>
 									</select>
+								<button>подтвердить</button>
 								</form>
-								<p>товар ID: <span>#000001</span></p>
 							</div>
 						</div>
+
+						<?php endforeach; ?>
+
 					</div>
 				</div>
 				<div class="admin__items">
@@ -70,8 +87,12 @@
 						<p class="admin__item-btn">смотреть всё</p>
 					</div>
 					<div class="admin__item-wrapper">
+						<?php foreach($models->all() as $model): ?>
+							<form action="/model/destroy" method="post">
+								<input type="hidden" name="id" value="<?=  $model->id() ?>">
+
 						<div class="admin__item">
-							<img src="./assets/img/catalog/1.png" alt="">
+							<img src="<?= $storage->url($model->image()) ?>" alt="">
 							<button class="admin__delete">
 								<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<g filter="url(#filter0_d_123_34)">
@@ -92,8 +113,10 @@
 									</defs>
 								</svg>
 							</button>
-							<h3>зарядное устройство uksa</h3>
-						</div>
+							<h3><?= $stations->find($model->station_id())->name(). ' '. $model->name() ?></h3>
+						</div></form>
+							<?php endforeach; ?>
+
 					</div>
 				</div>
 			</div>
@@ -104,28 +127,30 @@
 					</div>
 					<div class="admin__models-wrapper">
 						<div class="admin__models-add">
-							<form action="">
+							<form action="/model/add" method="post" enctype="multipart/form-data">
 								<label>
 									<p>Название</p>
-									<input type="text" name="">
+									<input type="text" name="name" placeholder="<?php if ($session->has('name')) { echo $session->getFlash('name')[0]; }?>">
 								</label>
 								<label>
 									<p>Цена</p>
-									<input type="number" name="">
+									<input type="number" name="price" placeholder="<?php if ($session->has('price')) { echo $session->getFlash('price')[0]; }?>">
 								</label>
 								<label>
 									<p>Описание</p>
-									<textarea name=""></textarea>
+									<textarea name="description" placeholder="<?php if ($session->has('description')) { echo $session->getFlash('description')[0]; }?>"></textarea>
 								</label>
 								<div class="admin__models-btn">
 									<p>Фото</p>
 									<button>Выбрать</button>
-									<input type="file">
+									<input type="file" name="image">
 								</div>
 								<label>
 									<p>Категория</p>
-									<select name="">
-										<option value="">текст</option>
+									<select name="station">
+										<?php foreach ($stations->all() as $station){ ?>
+                    						<option value="<?php echo  $station->id() ?>"><?php echo $station->name() ?></option>
+                						<?php } ?>
 									</select>
 								</label>
 								<button class="admin__models-button">Добавить</button>
@@ -138,14 +163,14 @@
 						<h2>Категории</h2>
 					</div>
 					<div class="admin__stations-wrapper">
-						<form action="">
+						<form action="/station/add" method="post">
 							<label for="">
 								<p>Название</p>
-								<input type="text">
+								<input type="text" name="name" placeholder="<?php if ($session->has('name')) { echo $session->getFlash('name')[0]; }?>">
 							</label>
 							<label>
-								<p>Описание</p>
-								<textarea name=""></textarea>
+								<p>тип защиты корпуса</p>
+								<textarea name="body_protection" placeholder="<?php if ($session->has('body_protection')) { echo $session->getFlash('body_protection')[0]; }?>"></textarea>
 							</label>
 							<button>Создать</button>
 						</form>

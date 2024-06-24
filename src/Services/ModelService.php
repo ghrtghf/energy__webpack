@@ -30,7 +30,9 @@ class ModelService
 
     public function all(): array
     {
-        $models = $this->db->get('models');
+        $models = $this->db->get('models',[
+            'is_delited' => 0
+        ]);
 
         return array_map(function($models){
             return new Model(
@@ -64,8 +66,8 @@ class ModelService
 
     public function destroy(int $id): void
     {
-        $this->db->delete('models', [
-            'id' => $id
+        $this->db->update('models', ['is_delited' => 1], [
+            'id' => $id,
         ]);
     }
 
