@@ -7,7 +7,6 @@
 
 <?php $view->component('start') ?>
 
-
 <section class='admin'>
 	<div class='wrapper'>
 		<div class="admin__main">

@@ -10,6 +10,8 @@ use App\Controllers\CartController;
 use App\Controllers\ItemController;
 use App\Controllers\AdminController;
 use App\Controllers\StationController;
+use App\Controllers\AddStationController;
+use App\Controllers\AddController;
 use App\Controllers\ModelController;
 use App\Kernel\Router\Route;
 use App\Middleware\AuthMiddleware;
@@ -20,6 +22,8 @@ return [
 	Route::get('/cart', [CartController::class, 'index']),
 	Route::get('/admin2', [AdminController::class, 'index2']),
 	Route::get('/history', [HistoryController::class, 'index']),
+	Route::get('/add', [AddController::class, 'index']),
+	Route::get('/addStation', [AddStationController::class, 'index']),
 	Route::get('/item', [ItemController::class, 'index']),
 	Route::get('/catalog', [CatalogController::class, 'index']),
 	Route::get('/profile', [ProfileController::class, 'index'], [AuthMiddleware::class]),
