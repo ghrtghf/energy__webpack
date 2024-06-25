@@ -1,18 +1,19 @@
 <?php
+
 /** 
  * @var \App\Kernel\View\View $view
- * @var \App\Kernel\Session\SessionInterface $session
- * @var \App\Kernel\Translater\TranslaterInterface $translater
  * @var array<\App\Models\Station> $stations
- * @var \App\Models\Model $model
-*/
+ * @var array<\App\Models\Model> $models
+ * @var \App\Kernel\Storage\StorageInterface $storage
+ */
+
 ?>
 
 <?php $view->component('start') ?>
 
-<section class='add'>
+<section class='addStation'>
 	<div class='wrapper'>
-		<div class="add__main">
+		<div class="addStation__main">
 			<div class="sidebar">
 				<div class="sidebar__inner">
 					<a href="./profile" class="sidebar__link sidebar__circle">
@@ -39,42 +40,26 @@
 							<path d="M28.7821 31.9805H31.9961V35.1786H28.7821V31.9805Z" fill="black" />
 						</svg>
 					</a>
+
 				</div>
 			</div>
-			<div class="add__content">
-				<div class="admin__models-add add__models-add">
-					<form action="" method="post" enctype="multipart/form-data">
-						<input type="hidden" name="id" value="<?php echo $model->id() ?>">
-						<label>
+			<div class="addStation__content">
+				<div class="admin__stations-wrapper addStation__models-add">
+					<form action="">
+						<label for="">
 							<p>Название</p>
-							<input type="text" name="name" value="<?= $model->name() ?>">
-						</label>
-						<label>
-							<p>Цена</p>
-							<input type="number" name="price" value="<?= $model->price() ?>">
+							<input type="text">
 						</label>
 						<label>
 							<p>Описание</p>
-							<input name="description" value="<?= $model->description() ?>"></input>
+							<textarea name=""></textarea>
 						</label>
-						<div class="admin__models-btn">
-							<p>Фото</p>
-							<button>Выбрать</button>
-							<input name="image" type="file" value="<?= $model->image() ?>">
-						</div>
-						<label>
-							<p>Категория</p>
-							<select name="station_id" id="">
-                    			<?php foreach ($stations as $station){ ?>
-                        			<option value="<?php echo  $station->id() ?>" <?php echo $station->id() == $model->station_id() ? 'selected' : '' ?>><?php echo $station->name() ?></option>
-                    			<?php } ?>
-                			</select>
-						</label>
-						<button class="admin__models-button">Добавить</button>
+						<button>Создать</button>
 					</form>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </section>
 

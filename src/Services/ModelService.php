@@ -30,9 +30,26 @@ class ModelService
 
     public function all(): array
     {
+        
         $models = $this->db->get('models',[
-            'is_delited' => 0
+            'is_delited' => 0,
         ]);
+
+        return array_map(function($models){
+            return new Model(
+                $models['id'],
+                $models['name'],
+                $models['price'],
+                $models['description'],
+                $models['image'],
+                $models['station_id']
+            );
+        }, $models);
+    }
+
+    public function filter($conditions):array
+    {
+        $models = $this->db->get('models', $conditions);
 
         return array_map(function($models){
             return new Model(

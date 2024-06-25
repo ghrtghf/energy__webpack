@@ -15,10 +15,17 @@ class CatalogController extends Controller
         $stations = new StationService($this->db());
         $models = new ModelService($this->db());
 
+        if(!empty($this->request()->input('filter'))){
+            $this->view('catalog',[
+            'stations' => $stations->all(),
+            'models' => $models->filter(['is_delited' => 0, 'station_id' => $this->request()->input('filter')]),
+        ]);
+        }
         $this->view('catalog',[
             'stations' => $stations->all(),
             'models' => $models->all(),
         ]);
+
     }
 
     public function add(): void

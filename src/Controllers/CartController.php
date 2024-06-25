@@ -57,7 +57,11 @@ class CartController extends Controller
 
 		if(!empty($cart->all())){
 			$cart->buy($this->auth()->user());
+
+			// mail($this->auth()->user()->email(), 'Благодарим вас за покупку', 'благодарим за покупку зарядной станции на нашем сайте');
 		}
+
+
 
 		$this->redirect('/cart');
 	}

@@ -12,22 +12,13 @@ class AdminController extends Controller
 {
 	public function index(): void
 	{
-		$stations = new StationService($this->db());
-		$models = new ModelService($this->db());
-
 		$this->view('admin/index', [
-			'stations' => $stations->all(),
-			'models' => $models->all(),
-		]);
-	}
-	public function index2(): void
-	{
-		$this->view('admin',[
 			'requests' => new RequestService($this->db()),
 			'stations' => new StationService($this->db()),
 			'models' => new ModelService($this->db()),
 		]);
 	}
+	
 
 	public function updateStatus():void
 	{
